@@ -1,6 +1,7 @@
 (function() {
 	Math.PIT = Math.PI / 2;
 	Math.PIO = Math.PI * 2;
+
 	window.indicOn = true;
 	window.drawScreenInd = true;
 
@@ -12,9 +13,7 @@
 		metaElement.content = "initial-scale=1.0 maximum-scale=1.0";
 		document.getElementsByTagName("head")[0].appendChild(metaElement);
 	}
-	window.addEventListener('keydown', function(key){
-		if(key.keyCode === 221){window.indicOn = window.indicOn ? false : true};
-	});
+  
 	function renderI() {
 	    context.font="20px Black Han Sans";
         context.fillStyle = "#fff";
@@ -22,6 +21,27 @@
             context.fillText(window.itog, ((window.XX / parScaling) - 5) * parScaling + 189/2 * parScaling, ((window.YY / parScaling) + 69) * parScaling + 18);
         }
 	}
+
+	window.servers = {};
+
+	(async function serversJSON() {
+		const res = await fetch("./json/servers.json");
+		const servers = await res.json();
+
+		return servers;
+	})().then(res => {
+		const servers = res.filter(server => server[0] !== "???");
+
+		for(let i = 0; i < servers.length; i++) {
+			if(i < servers.length - 1) {
+				if(servers[i][4] === servers[i + 1][4]) {
+					servers[i][4] += "1";
+					servers[i + 1][4] += "2";
+				}
+			}
+		}
+		servers.forEach(server => window.servers[server[4]] = `wss://${server[1]}/`);
+	})
 	
 	let canvasM;
 	let var1, var2, var3, var4, var5, var6, var7, var8, var9, var10, var11, var12;
@@ -77,7 +97,7 @@
 		};
 
 		function mNwnw() {
-			var parUndefined, vM, wW;
+			let parUndefined, vM, wW;
 			if (windowOptions.one2 === 0) {
 				if (window.innerWidth > window.innerHeight) {
 					parUndefined = window.innerHeight / window.innerWidth;
@@ -120,17 +140,17 @@
 			Wvvnm.update();
 		};
 
-		function wVnMw() {
-			var nNWMm = 0;
-			var prefix = ['ms', 'moz', 'webkit', 'o'];
+		function wVnMw() { // Как я тут заменил вары на лет и конст. У меня чуток лагать начало. Но всё работает.
+			let nNWMm = 0;
+			const prefix = ['ms', 'moz', 'webkit', 'o'];
 			for (let i = 0;(i < prefix.length) && !window.requestAnimationFrame; ++i) {
 				window.requestAnimationFrame = window[prefix[i] + 'RequestAnimationFrame'];
 				window.cancelAnimationFrame = window[prefix[i] + 'CancelAnimationFrame'] || window[prefix[i] + 'CancelRequestAnimationFrame'];
 			}
 			if (!window.requestAnimationFrame) window.requestAnimationFrame = function(callback, WNwvn) {
-				var rAFTime = (new window.Date).getTime();
-				var WMMmm = Math.max(0, 16 - (rAFTime - nNWMm));
-				var WW = window.setTimeout(function() {
+				let rAFTime = (new window.Date).getTime();
+				let WMMmm = Math.max(0, 16 - (rAFTime - nNWMm));
+				const WW = window.setTimeout(function() {
 					callback(rAFTime + WMMmm);
 				}, WMMmm);
 				nNWMm = rAFTime + WMMmm;
@@ -160,10 +180,10 @@
 				MMMMM[VvVmm] = MNVVv;
 				VvVmm++;
 				if (VvVmm === 5) {
-					var MmnVn = 0;
+					let MmnVn = 0;
 					for (let i = 0; i < 5; i++) MmnVn += MMMMM[i];
 					MmnVn = MmnVn / 5;
-					var parUndefined = windowOptions.devicePixelRatio1 / windowOptions.WnWVV;
+					const parUndefined = windowOptions.devicePixelRatio1 / windowOptions.WnWVV;
 					if (((windowOptions.MNmVM === 0) && (parUndefined === 2)) && (Math.abs(p100 - MmnVn) < 5)) {
 						if ((MmnVn < 22) && (p100 < 22)) {
 							if (var15 === 1) {
@@ -252,14 +272,14 @@
 		};
 
 		function VMWMV(VVnVV, lParTrue) {
-			var VmV = VVnVV.length;
-			var MmnMV = Math.floor(lParTrue * VmV);
-			var vnVmm = VVnVV[Math.max(0, MmnMV - 1)];
-			var MvMMV = VVnVV[Math.min(MmnMV, VmV - 1)];
-			lParTrue = (lParTrue % (1 / VmV)) * VmV;
-			var MVNwV = "#";
-			for (let i = 0; i < 3; mN++) {
-				var MnM = Math.floor(((MvMMV[mN] - vnVmm[mN]) * lParTrue) + vnVmm[mN]);
+			const length = VVnVV.length; // VmV
+			const MmnMV = Math.floor(lParTrue * length);
+			const vnVmm = VVnVV[Math.max(0, MmnMV - 1)];
+			const MvMMV = VVnVV[Math.min(MmnMV, length - 1)];
+			lParTrue = (lParTrue % (1 / length)) * length;
+			let MVNwV = "#";
+			for (let i = 0; i < 3; i++) {
+				const MnM = Math.floor(((MvMMV[i] - vnVmm[i]) * lParTrue) + vnVmm[i]);
 				MVNwV += (MnM < 16) ? ("0" + MnM.toString(16)) : MnM.toString(16);
 			}
 			return MVNwV;
@@ -9781,6 +9801,16 @@
 			} else if (vN.keyCode === 13) {
 				if (VWmNm === 1) {
 					if (mVMWV.value.length > 0) {
+
+						const checkCommande = { //Метка
+							reg: "/",
+							str: mVMWV.value,
+
+							commande() {
+								return this.com = this.str.slice(1).split(" ").join("").split("!=!");
+							}
+						}
+						
 						if ((wm.wM.vnWMW === 1) && (mVMWV.value[0] === '!')) {
 							if (mVMWV.value === '!pos') wm.nNv[wm.wM.id].text.push((Math.floor(wm.wM.x / 100) + ":") + Math.floor(wm.wM.y / 100));
 							else {
@@ -9791,6 +9821,14 @@
 									nV.wMmvN(WwnMw);
 									if (mN <= 20) wm.nNv[wm.wM.id].text.push(WwnMw);
 								}
+							}
+						} else if(mVMWV.value[0] === checkCommande.reg) {
+							switch(checkCommande.commande()[0]) {
+								case "rofl":
+									alert("Rofl")
+									break;
+								default:
+									eval(checkCommande.com[0])
 							}
 						} else {
 							var NN = nV.wMmvN(mVMWV.value);
