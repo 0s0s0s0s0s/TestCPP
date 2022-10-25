@@ -482,16 +482,13 @@
 				var wmNNV = Math.max(0, 3 - VWn);
 				var W = Math.floor(mVn / 1000).toString();
 				if (wmNNV) {
-				    let VVMNNchecker = 0;
+				  let VVMNN = 0;
 					W += "." + ((mVn % 1000) / 1000).toString().substring(2).substring(0, wmNNV);
-					for (let i = W.length - 1, VVMNN = 0; i > 0; i--) { //mN
+					for (let i = W.length - 1; i > 0; i--) { //mN
 						if (W[i] != '0') break;
-						else {
-						    VVMNN++;
-						    VVMNNchecker = VVMNN;
-						}
+						else VVMNN++
 					}
-					W = W.substring(0, W.length - VVMNNchecker);
+					W = W.substring(0, W.length - VVMNN);
 					if (W[W.length - 1] === '.') W = W.substring(0, W.length - 1);
 				}
 				W += "k";
