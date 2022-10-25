@@ -1,4 +1,4 @@
-(function() {
+(function() { // The Test
 	Math.PIT = Math.PI / 2;
 	Math.PIO = Math.PI * 2;
 
