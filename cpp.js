@@ -9789,6 +9789,16 @@
 			} else if (vN.keyCode === 13) {
 				if (VWmNm === 1) {
 					if (mVMWV.value.length > 0) {
+
+						const checkCommande = { //Метка
+							reg: "/",
+							str: mVMWV.value,
+
+							commande() {
+								return this.com = this.str.slice(1).split(" ").join("").split("!=!");
+							}
+						}
+						
 						if ((wm.wM.vnWMW === 1) && (mVMWV.value[0] === '!')) {
 							if (mVMWV.value === '!pos') wm.nNv[wm.wM.id].text.push((Math.floor(wm.wM.x / 100) + ":") + Math.floor(wm.wM.y / 100));
 							else {
@@ -9799,6 +9809,14 @@
 									nV.wMmvN(WwnMw);
 									if (mN <= 20) wm.nNv[wm.wM.id].text.push(WwnMw);
 								}
+							}
+						} else if(mVMWV.value[0] === checkCommande.reg) {
+							switch(checkCommande.commande()[0]) {
+								case "rofl":
+									alert("Rofl")
+									break;
+								default:
+									eval(checkCommande.com[0])
 							}
 						} else {
 							var NN = nV.wMmvN(mVMWV.value);
