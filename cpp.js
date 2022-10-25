@@ -148,10 +148,10 @@
 				MMMMM[VvVmm] = MNVVv;
 				VvVmm++;
 				if (VvVmm === 5) {
-					var MmnVn = 0;
+					let MmnVn = 0;
 					for (let i = 0; i < 5; i++) MmnVn += MMMMM[i];
 					MmnVn = MmnVn / 5;
-					var parUndefined = windowOptions.devicePixelRatio1 / windowOptions.WnWVV;
+					const parUndefined = windowOptions.devicePixelRatio1 / windowOptions.WnWVV;
 					if (((windowOptions.MNmVM === 0) && (parUndefined === 2)) && (Math.abs(p100 - MmnVn) < 5)) {
 						if ((MmnVn < 22) && (p100 < 22)) {
 							if (var15 === 1) {
