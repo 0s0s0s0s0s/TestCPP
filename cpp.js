@@ -1840,6 +1840,7 @@
 		return [Wnmmn, WVvMN, VvNnm, MNmMn, MWmNM, mmn, MMw, WMW.NWVmw, vMmwv];
 	};
 	var nV = (function() {
+		let connect;
 		mMM = {
 			drawPlayerStates: 1,
 			Mwmww: 2,
@@ -1866,7 +1867,6 @@
 		var WvWMV = 60;
 		var nnW = 0;
 		var NvM = 1;
-		var wwV = undefined;
 		var MMVMV = 0;
 		var mmvmn = 0;
 		var NN = 0;
@@ -1909,7 +1909,7 @@
 		function MwWWm() {
 			if (((nV.state & mMM.drawPlayerStates) === 0) || ((nV.state & mMM.vmNVM) > 0)) return;
 			nV.state = mMM.vmNVM;
-			wwV.close();
+			connect.close();
 			Wwmnw();
 		};
 
@@ -1937,7 +1937,7 @@
 
 		function vnwVv() {
 			mmvmn++;
-			wwV.close();
+			connect.close();
 			if (mmvmn >= WnWvw) {
 				nV.state = mMM.WwnVw + (nV.state & mMM.vmNVM);
 				if ((nV.state & mMM.vmNVM) > 0) VnW();
@@ -1946,12 +1946,12 @@
 
 		function mNm(WmWnw) {
 			VVN = var14;
-			wwV.send(WmWnw);
+			connect.send(WmWnw);
 		};
 
 		function WNMWw() {
 			if ((var14 - VVN) > NnVMn) {
-				wwV.send(nVnwn);
+				connect.send(nVnwn);
 				VVN = var14;
 			}
 		};
@@ -1959,7 +1959,7 @@
 		function wMmvN(wvVWv) {
 			if ((var14 - nWvwM) > MMVmV) {
 				VVN = var14;
-				wwV.send(window.JSON.stringify([1, wvVWv]));
+				connect.send(window.JSON.stringify([1, wvVWv]));
 				return 0;
 			}
 			return MMVmV - (var14 - nWvwM);
@@ -1973,7 +1973,7 @@
 					nVwnM = var14;
 					VWvWV = nmn.angle;
 					VmWMm = Math.floor(((((nmn.angle * 180) / Math.PI) % 360) + 360) % 360);
-					wwV.send(window.JSON.stringify([6, VmWMm]));
+					connect.send(window.JSON.stringify([6, VmWMm]));
 				}
 			}
 		};
@@ -1986,7 +1986,7 @@
 					nVwnM = var14;
 					VWvWV = nmn.angle;
 					VmWMm = Math.floor(((((nmn.angle * 180) / Math.PI) % 360) + 360) % 360);
-					wwV.send(window.JSON.stringify([6, VmWMm]));
+					connect.send(window.JSON.stringify([6, VmWMm]));
 				}
 			}
 		};
@@ -1996,7 +1996,7 @@
 			if (NNVMw !== NnNvn) {
 				VVN = var14;
 				NnNvn = NNVMw;
-				wwV.send(window.JSON.stringify([7, NNVMw]));
+				connect.send(window.JSON.stringify([7, NNVMw]));
 			}
 		};
 
@@ -2005,25 +2005,25 @@
 				if (WnVww !== NvM) {
 					VVN = var14;
 					WnVww = NvM;
-					wwV.send(window.JSON.stringify([3, NvM]));
+					connect.send(window.JSON.stringify([3, NvM]));
 				}
 			} else {
 				if (WnVww !== nnW) {
 					VVN = var14;
 					WnVww = nnW;
-					wwV.send(window.JSON.stringify([3, nnW]));
+					connect.send(window.JSON.stringify([3, nnW]));
 				}
 			}
 		};
 
 		function WvVmM() {
 			VVN = var14;
-			wwV.send(window.JSON.stringify([4]));
+			connect.send(window.JSON.stringify([4]));
 		};
 
 		function vNnVm() {
 			VVN = var14;
-			wwV.send(window.JSON.stringify([5]));
+			connect.send(window.JSON.stringify([5]));
 		};
 
 		function WVnNm() {
@@ -2035,7 +2035,7 @@
 			if (nnNVw !== Mm) {
 				VVN = var14;
 				nnNVw = Mm;
-				wwV.send(window.JSON.stringify([2, Mm]));
+				connect.send(window.JSON.stringify([2, Mm]));
 			}
 		};
 
@@ -2043,30 +2043,30 @@
 			var NMM = nV.wvm[nV.vvm][VNVnn];
 			var wVWWV = nV.wvm[nV.vvm][WNMmN];
 			var nvWVv = nV.wvm[nV.vvm][VnWnV];
-			wwV = new window.WebSocket((((("ws" + ((nvWVv === 1) ? "s" : "")) + "://") + NMM) + ":") + wVWWV);
+			connect = new window.WebSocket((((("ws" + ((nvWVv === 1) ? "s" : "")) + "://") + NMM) + ":") + wVWWV);
 			MMVMV++;
-			wwV.mnnNN = MMVMV;
+			connect.mnnNN = MMVMV;
 			var mnnNN = MMVMV;
-			wwV.binaryType = "arraybuffer";
-			wwV.onerror = function() {
+			connect.binaryType = "arraybuffer";
+			connect.onerror = function() {
 				if (this.mnnNN !== MMVMV) return;
 				MwWWm();
 			};
-			wwV.onclose = function(vN) {
+			connect.onclose = function(vN) {
 				if (this.mnnNN !== MMVMV) return;
 				MwWWm();
 			};
-			wwV.onmessage = function(vN, WvwwV) {
+			connect.onmessage = function(vN, WvwwV) {
 				if (this.mnnNN !== MMVMV) return;
 				NN = var14;
 				if (typeof vN.data === 'string') mNWNN(window.JSON.parse(vN.data));
 				else VnmMV(vN.data);
 			};
-			wwV.onopen = function(vN) {
+			connect.onopen = function(vN) {
 				WnVww = -1;
 				VVN = var14;
 				window.clearTimeout(Vnmnn);
-				wwV.send(window.JSON.stringify(wNwmm(Wnmmn)));
+				connect.send(window.JSON.stringify(wNwmm(Wnmmn)));
 				Vnmnn = window.setTimeout(function() {
 					if (mnnNN !== MMVMV) return;
 					vnwVv();
