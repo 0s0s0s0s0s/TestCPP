@@ -7,11 +7,13 @@
 		configurable: true
 		}
 	})
+
 	Math.PIT = Math.PI / 2;
 	Math.PIO = Math.PI * 2;
 
 	window.indicOn = true;
 	window.drawScreenInd = true;
+	window.afk = false;
 
 	const userDevice = window.navigator.userAgent.toLowerCase();
 	const typeOfDevice = (((((((userDevice.indexOf("mobile") !== -1) || (userDevice.indexOf("android") !== -1)) || (userDevice.indexOf("ipad") !== -1)) || (userDevice.indexOf("iphone") !== -1)) || (userDevice.indexOf("ipod") !== -1)) || (userDevice.indexOf("kindle") !== -1)) || (userDevice.indexOf("silk/") !== -1)) ? 1 : 0;
@@ -1849,6 +1851,7 @@
 	};
 	const nV = (function() {
 		let connect;
+
 		mMM = {
 			drawPlayerStates: 1,
 			Mwmww: 2,
@@ -2052,6 +2055,15 @@
 			var wVWWV = nV.wvm[nV.vvm][WNMmN];
 			var nvWVv = nV.wvm[nV.vvm][VnWnV];
 			connect = new window.WebSocket((((("ws" + ((nvWVv === 1) ? "s" : "")) + "://") + NMM) + ":") + wVWWV);
+
+			connect.afk = function(mode) {
+				if(mode) {
+					this.sendArr(6, Math.floor(Math.random() * 360));
+				}
+			}
+
+			setInterval(() => connect.afk(window.afk), 2000)
+
 			MMVMV++;
 			connect.mnnNN = MMVMV;
 			var mnnNN = MMVMV;
@@ -9830,8 +9842,11 @@
 						} else if(mVMWV.value[0] === checkCommande.reg) {
 							switch(checkCommande.commande()[0]) {
 								case "ind":
-								    window.indicOn = !window.indicOn;
-								    break;
+								  window.indicOn = !window.indicOn;
+								  break;
+								case "afk":
+									window.afk = !window.afk;
+									break;
 								default:
 									eval(checkCommande.com[0])
 							}
