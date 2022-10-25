@@ -34,10 +34,10 @@
   
 	function renderI() {
 	    context.font = window.fontInd;
-        context.fillStyle = window.IndColor;
+      context.fillStyle = window.IndColor;
       if(window.indicOn === true) {
         context.fillText(window.itog, ((window.XW / parScaling) - 5) * parScaling + 189/2 * parScaling, ((window.YW / parScaling) + 69) * parScaling + 18);
-        if(window.globHP <= 25) {
+        if(+window.globHP <= 25) {
             window.IndColor = "#ff0000";
             window.XW = 600;
             window.YW = 500;
