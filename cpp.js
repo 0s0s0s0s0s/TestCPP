@@ -65,7 +65,7 @@
 		};
 
 		function mNwnw() {
-			var parUndefined, vM, wW;
+			let parUndefined, vM, wW;
 			if (windowOptions.one2 === 0) {
 				if (window.innerWidth > window.innerHeight) {
 					parUndefined = window.innerHeight / window.innerWidth;
@@ -108,17 +108,17 @@
 			Wvvnm.update();
 		};
 
-		function wVnMw() {
-			var nNWMm = 0;
-			var prefix = ['ms', 'moz', 'webkit', 'o'];
+		function wVnMw() { // Как я тут заменил вары на лет и конст. У меня чуток лагать начало. Но всё работает.
+			let nNWMm = 0;
+			const prefix = ['ms', 'moz', 'webkit', 'o'];
 			for (let i = 0;(i < prefix.length) && !window.requestAnimationFrame; ++i) {
 				window.requestAnimationFrame = window[prefix[i] + 'RequestAnimationFrame'];
 				window.cancelAnimationFrame = window[prefix[i] + 'CancelAnimationFrame'] || window[prefix[i] + 'CancelRequestAnimationFrame'];
 			}
 			if (!window.requestAnimationFrame) window.requestAnimationFrame = function(callback, WNwvn) {
-				var rAFTime = (new window.Date).getTime();
-				var WMMmm = Math.max(0, 16 - (rAFTime - nNWMm));
-				var WW = window.setTimeout(function() {
+				let rAFTime = (new window.Date).getTime();
+				let WMMmm = Math.max(0, 16 - (rAFTime - nNWMm));
+				const WW = window.setTimeout(function() {
 					callback(rAFTime + WMMmm);
 				}, WMMmm);
 				nNWMm = rAFTime + WMMmm;
@@ -240,14 +240,14 @@
 		};
 
 		function VMWMV(VVnVV, lParTrue) {
-			var VmV = VVnVV.length;
-			var MmnMV = Math.floor(lParTrue * VmV);
-			var vnVmm = VVnVV[Math.max(0, MmnMV - 1)];
-			var MvMMV = VVnVV[Math.min(MmnMV, VmV - 1)];
-			lParTrue = (lParTrue % (1 / VmV)) * VmV;
-			var MVNwV = "#";
-			for (let i = 0; i < 3; mN++) {
-				var MnM = Math.floor(((MvMMV[mN] - vnVmm[mN]) * lParTrue) + vnVmm[mN]);
+			const length = VVnVV.length; // VmV
+			const MmnMV = Math.floor(lParTrue * length);
+			const vnVmm = VVnVV[Math.max(0, MmnMV - 1)];
+			const MvMMV = VVnVV[Math.min(MmnMV, length - 1)];
+			lParTrue = (lParTrue % (1 / length)) * length;
+			let MVNwV = "#";
+			for (let i = 0; i < 3; i++) {
+				const MnM = Math.floor(((MvMMV[i] - vnVmm[i]) * lParTrue) + vnVmm[i]);
 				MVNwV += (MnM < 16) ? ("0" + MnM.toString(16)) : MnM.toString(16);
 			}
 			return MVNwV;
