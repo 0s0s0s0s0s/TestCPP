@@ -751,8 +751,8 @@
 			if (wnMWM === undefined) wnMWM = 0;
 			if (WWV === undefined) WWV = 0;
 			if (mNWmN === undefined) mNWmN = 0;
-			var canvasM = document.createElement("canvas");
-			var context = canvasM.getContext("2d");
+			const canvasM = document.createElement("canvas");
+			const context = canvasM.getContext("2d");
 			context.textBaseline = "middle", context.font = ((((mwWnW !== undefined) ? (mwWnW + " ") : '') + wW) + "px ") + wWMvM;
 			if (vM !== undefined) vM = Math.min(context.measureText(wwn).width, vM);
 			else vM = context.measureText(wwn).width;
@@ -798,30 +798,31 @@
 	})();
 
 	function MNnnv(vMn, wVv) {
-		var Nvv = new window.Uint16Array(vMn);
+		const Nvv = new window.Uint16Array(vMn);
 		if (wVv[1] === 1) nmm.vnNMN();
-		var VmV = (wVv.length - 2) / 18;
-		for (var mN = 0, NNvnw = 2, vWnmv = 1; mN < VmV; mN++, NNvnw += 18, vWnmv += 9) {
-			var WmObject = null;
-			var Nvn = wVv[NNvnw];
-			var Mvv = wVv[NNvnw + 1];
-			var vW = wVv[NNvnw + 3];
-			var NVM = Nvv[vWnmv + 2];
-			var WW = Nvv[vWnmv + 3];
-			var Wvn = Nvv[vWnmv + 8];
+		const VmV = (wVv.length - 2) / 18;
+
+		for (let i = 0, NNvnw = 2, vWnmv = 1; i < VmV; i++, NNvnw += 18, vWnmv += 9) { // mN
+			let WmObject = null;
+			const Nvn = wVv[NNvnw];
+			const Mvv = wVv[NNvnw + 1];
+			const vW = wVv[NNvnw + 3];
+			const NVM = Nvv[vWnmv + 2];
+			const WW = Nvv[vWnmv + 3];
+			const Wvn = Nvv[vWnmv + 8];
 			if (NVM === 0) {
 				nmm.remove(Nvn, WW, Mvv, vW, Wvn);
 				continue;
 			}
 			WmObject = nmm.get(Nvn, WW, Mvv, vW);
 			VMwvV(WmObject, Nvn, Mvv, WW, vW, Nvv[vWnmv + 4], Nvv[vWnmv + 5], Nvv[vWnmv + 6], Nvv[vWnmv + 7], Wvn, wVv[NNvnw + 2], NVM);
-			var WvV = mvn[vW].update;
+			const WvV = mvn[vW].update;
 			if (WvV !== undefined) WvV(WmObject, Nvv[vWnmv + 4], Nvv[vWnmv + 5]);
 		}
 	};
 
 	function NmwnV(vMn) {
-		var Nvv = new window.Uint16Array(vMn);
+		const Nvv = new window.Uint16Array(vMn);
 		if ((WMW.wNN === wm.MvN) || (WMW.wNN === wm.mWwvm)) {
 			nV.VmwvM(Nvv[1]);
 			if (WMW.mVNVN <= 0) {
@@ -843,7 +844,7 @@
 	};
 
 	function NNvvN(wVv) {
-		var VV = nmm.wNVNv(mNn, wm.wM.id, 0);
+		const VV = nmm.wNVNv(mNn, wm.wM.id, 0);
 		if (VV !== null) nmm.remove(VV.Nvn, VV.id, VV.Mvv, VV.type, 1);
 		wm.wM.NmwWN = (wVv[1] << 8) + wVv[2];
 		nV.VWwMv();
@@ -867,14 +868,14 @@
 
 	function vVVwn(vMn, wVv) {
 		if (vMn.byteLength === 1) return;
-		var Nvv = new window.Uint16Array(vMn);
+		const Nvv = new window.Uint16Array(vMn);
 		wm.VNmwm(Nvv, wVv);
 	};
 
 	function mVwmM(vMn, wVv) {
 		wm.wM.id = wVv[1];
-		var Nvv = new window.Uint16Array(vMn);
-		var MwN = Nvv[3] << 5;
+		const Nvv = new window.Uint16Array(vMn);
+		let MwN = Nvv[3] << 5;
 		wm.WvvVv((MwN >= wm.Vvnvm) ? 1 : 0, MwN);
 		nV.wvwmv();
 		nM.reset();
