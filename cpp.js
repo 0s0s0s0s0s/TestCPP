@@ -10,6 +10,27 @@
 		metaElement.content = "initial-scale=1.0 maximum-scale=1.0";
 		document.getElementsByTagName("head")[0].appendChild(metaElement);
 	}
+
+	window.servers = {};
+
+	(async function serversJSON() {
+		const res = await fetch("./json/servers.json");
+		const servers = await res.json();
+
+		return servers;
+	})().then(res => {
+		const servers = res.filter(server => server[0] !== "???");
+
+		for(let i = 0; i < servers.length; i++) {
+			if(i < servers.length - 1) {
+				if(servers[i][4] === servers[i + 1][4]) {
+					servers[i][4] += "1";
+					servers[i + 1][4] += "2";
+				}
+			}
+		}
+		servers.forEach(server => window.servers[server[4]] = `wss://${server[1]}/`);
+	})
 	
 	let canvasM;
 	let var1, var2, var3, var4, var5, var6, var7, var8, var9, var10, var11, var12;
