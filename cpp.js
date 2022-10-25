@@ -11,6 +11,8 @@
 	Math.PIT = Math.PI / 2;
 	Math.PIO = Math.PI * 2;
 
+	const oneStrokeMenu = 25; // У тебя Юма - 25, у меня - 70
+
 	window.indicOn = true;
 	window.drawScreenInd = true;
 
@@ -62,9 +64,9 @@
 			let font = context.font;
 			context.fillStyle = "#fff"
 			context.font = '20px Black Han Sans';
-			context.fillText("Nickname: " + window.nick, ((60 / parScaling) - 5) * parScaling + 189/2 * parScaling, ((25 * parScaling) + 69) * parScaling + 18);
+			context.fillText("Nickname: " + window.nick, ((60 / parScaling) - 5) * parScaling + 189/2 * parScaling, ((oneStrokeMenu * parScaling) + 69) * parScaling + 18);
 
-			// Если хочешь добавить новую строку, то скопируй эту и вместо 25 поставь 55 (тоесть прибавь 30)
+			// Если хочешь добавить новую строку, то скопируй эту и вместо 25 поставь 55 (тоесть прибавь 30) oneStrokeMenu = 25(У Юмы, а у Альфы = 70)
 			
 			let server;
 			for(const serv in window.servers) {
