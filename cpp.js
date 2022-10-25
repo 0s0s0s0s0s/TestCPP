@@ -41949,8 +41949,5 @@
 			Mwv.wnm();
 		} else window.setTimeout(NMWNw, 100);
 	};
-	window.onbeforeunload = function() {
-		if (nV.state & nV.mMM.drawPlayerStates) return "Are you sure you want quit?";
-	};
 	NMWNw();
 })();
