@@ -895,7 +895,7 @@
 		wm.wM.nWnmw = 0;
 		wm.wM.nNVmV = 0;
 		wm.wM.vMv = 0;
-		for (var mN = 0; mN < wm.wM.WvN.length; mN++) wm.wM.WvN[mN] = 0;
+		for (let i = 0; i < wm.wM.WvN.length; i++) wm.wM.WvN[i] = 0;
 		for (var mN = 0; mN < 8; mN++) wm.wM.VMWvW[mN] = {
 			WmWmM: 0,
 			id: 0
