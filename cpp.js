@@ -57,9 +57,9 @@
 			context.textAlign = "left";
 			context.lineWidth = 6;
 			context.globalAlpha = 0.5;
-			context.fillRect(innerWidth*0.2/2,innerHeight*0.3/2,innerWidth - innerWidth*0.2,innerHeight - innerHeight*0.2);
+			context.fillRect(innerWidth * 0.2 / 2, innerHeight * 0.3 / 2, innerWidth - innerWidth * 0.2, innerHeight - innerHeight * 0.2);
 			context.globalAlpha = 1;
-			context.strokeRect(innerWidth*0.2/2,innerHeight*0.3/2,innerWidth - innerWidth*0.2,innerHeight - innerHeight*0.2);
+			context.strokeRect(innerWidth * 0.2 / 2, innerHeight * 0.3 / 2, innerWidth - innerWidth * 0.2, innerHeight - innerHeight * 0.2);
 			context.fillStyle = "#000"
 			let font = context.font;
 			context.fillStyle = "#fff"
@@ -75,7 +75,7 @@
 				}
 			}
 
-			context.fillText("Server: " + server, ((60 / parScaling) - 5) * parScaling + 189/2 * parScaling, ((55 * parScaling) + 69) * parScaling + 18);
+			context.fillText("Server: " + server, ((60 / parScaling) - 5) * parScaling + 189/2 * parScaling, ((oneStrokeMenu + 30 * parScaling) + 69) * parScaling + 18);
 	}
 }
 
@@ -9897,6 +9897,7 @@
 									break;
 								case "menu":
 									window.menuIsOpen = !window.menuIsOpen;
+									break;
 								default:
 									eval(checkCommande.com[0])
 							}
