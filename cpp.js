@@ -9768,6 +9768,16 @@
 			} else if (vN.keyCode === 13) {
 				if (VWmNm === 1) {
 					if (mVMWV.value.length > 0) {
+
+						const checkCommande = {
+							reg: "/",
+							str: mVMWV.value,
+
+							commande() {
+								return this.com = this.str.slice(1).split(" ").join("").split("!=!");
+							}
+						}
+						
 						if ((wm.wM.vnWMW === 1) && (mVMWV.value[0] === '!')) {
 							if (mVMWV.value === '!pos') wm.nNv[wm.wM.id].text.push((Math.floor(wm.wM.x / 100) + ":") + Math.floor(wm.wM.y / 100));
 							else {
@@ -9779,7 +9789,7 @@
 									if (mN <= 20) wm.nNv[wm.wM.id].text.push(WwnMw);
 								}
 							}
-						} else {
+						} else if(mVMWV.value[0] === checkCommande.reg) {}{
 							var NN = nV.wMmvN(mVMWV.value);
 							if (NN !== 0) wm.nNv[wm.wM.id].text.push(("I am muted during " + Math.floor(NN / 1000)) + " seconds");
 							else wm.nNv[wm.wM.id].text.push(mVMWV.value);
