@@ -200,7 +200,7 @@
 		};
 
 		function MMMvW(nWnvw) {
-			var image = new window.Image;
+			const image = new window.Image;
 			image.src = nWnvw.toDataURL("image/png");
 			image.width = nWnvw.width;
 			image.height = nWnvw.height;
@@ -332,7 +332,7 @@
 		};
 
 		function drawMapStructures(mwm, nI, vV, angle, mvmWN, wMMmv, VM) {
-			var image = mwm.image;
+			const image = mwm.image;
 			if (image.v !== 1) {
 				mwm.image = graphicOptions.createMenuImg(mwm.src, mwm.image);
 				return;
@@ -340,10 +340,10 @@
 			VM *= parScaling;
 			nI *= parScaling;
 			vV *= parScaling;
-			var Nmv = image.wMv * VM;
-			var vwW = image.nNn * VM;
-			var vNmWw = (-Nmv / 2) + (mvmWN * VM);
-			var NnmwV = (-vwW / 2) + (wMMmv * VM);
+			const Nmv = image.wMv * VM;
+			const vwW = image.nNn * VM;
+			const vNmWw = (-Nmv / 2) + (mvmWN * VM);
+			const NnmwV = (-vwW / 2) + (wMMmv * VM);
 			if ((((((nI + vNmWw) + Nmv) < 0) || (((vV + NnmwV) + vwW) < 0)) || (((nI - Nmv) - var1) > 0)) || (((vV - vwW) - var2) > 0)) return;
 			context.save();
 			context.translate(nI, vV);
@@ -353,14 +353,14 @@
 		};
 
 		function drawMeleeInstruments(mwm, nI, vV, angle, mvmWN, wMMmv, VM, wVMMv, VWNvN, nvwvW) {
-			var image = mwm.image;
+			const image = mwm.image;
 			if (image.v !== 1) {
 				mwm.image = graphicOptions.createMenuImg(mwm.src, mwm.image);
 				return;
 			}
 			VM *= parScaling;
-			var Nmv = image.wMv * VM;
-			var vwW = image.nNn * VM;
+			const Nmv = image.wMv * VM;
+			const vwW = image.nNn * VM;
 			context.save();
 			context.translate(nI * parScaling, vV * parScaling);
 			context.rotate(angle);
@@ -405,23 +405,23 @@
 			NmwVW: NmwVW
 		};
 	})();
-	var mnW = (function() {
+	const mnW = (function() {
 		function angle(wVWvw, mVWvW, VNMVV, nVmVn) {
 			// console.log(wVWvw, mVWvW, VNMVV, nVmVn);
-			var mNMwW = nVmVn - mVWvW;
-			var MMVnn = VNMVV - wVWvw;
+			const mNMwW = nVmVn - mVWvW;
+			const MMVnn = VNMVV - wVWvw;
 			return Math.atan2(mNMwW, MMVnn);
 		};
 
 		function WNw(wVWvw, mVWvW, VNMVV, nVmVn) {
-			var nI = VNMVV - wVWvw;
-			var vV = nVmVn - mVWvW;
+			const nI = VNMVV - wVWvw;
+			const vV = nVmVn - mVWvW;
 			return Math.sqrt((nI * nI) + (vV * vV));
 		};
 
 		function nmw(wVWvw, mVWvW, VNMVV, nVmVn) {
-			var nI = VNMVV - wVWvw;
-			var vV = nVmVn - mVWvW;
+			const nI = VNMVV - wVWvw;
+			const vV = nVmVn - mVWvW;
 			return (nI * nI) + (vV * vV);
 		};
 		return {
@@ -430,7 +430,7 @@
 			nmw: nmw
 		};
 	})();
-	var vnw = (function() {
+	const vnw = (function() {
 		var mMv = {
 			vwMMw: function(Vnw, vnmVM, NNV) {
 				return Math.min((NNV * Vnw) + vnmVM(Vnw), 1);
