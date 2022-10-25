@@ -13,7 +13,15 @@
 
 	window.indicOn = true;
 	window.drawScreenInd = true;
+
 	window.afk = false;
+
+	window.menuIsOpen = false;
+	window.XW = window.XX;
+	window.YW = window.YY;
+	window.IndColor = "#fff";
+	window.fontInd = "20px Black Han Sans"
+
 
 	const userDevice = window.navigator.userAgent.toLowerCase();
 	const typeOfDevice = (((((((userDevice.indexOf("mobile") !== -1) || (userDevice.indexOf("android") !== -1)) || (userDevice.indexOf("ipad") !== -1)) || (userDevice.indexOf("iphone") !== -1)) || (userDevice.indexOf("ipod") !== -1)) || (userDevice.indexOf("kindle") !== -1)) || (userDevice.indexOf("silk/") !== -1)) ? 1 : 0;
@@ -23,13 +31,43 @@
 		metaElement.content = "initial-scale=1.0 maximum-scale=1.0";
 		document.getElementsByTagName("head")[0].appendChild(metaElement);
 	}
+	
+	window.addEventListener('keydown', function(key){
+		if(key.keyCode === 221){window.menuIsOpen = window.menuIsOpen ? false : true};
+	});
   
 	function renderI() {
-	    context.font="20px Black Han Sans";
-      context.fillStyle = "#fff";
+	    context.font = window.fontInd;
+        context.fillStyle = window.IndColor;
       if(window.indicOn === true) {
-        context.fillText(window.itog, ((window.XX / parScaling) - 5) * parScaling + 189/2 * parScaling, ((window.YY / parScaling) + 69) * parScaling + 18);
+        context.fillText(window.itog, ((window.XW / parScaling) - 5) * parScaling + 189/2 * parScaling, ((window.YW / parScaling) + 69) * parScaling + 18);
+        if(window.globHP <= 25) {
+            window.IndColor = "#ff0000";
+            window.XW = 600;
+            window.YW = 500;
+            window.fontInd = "50px Black Han Sans"
+        }
+        else {
+            window.IndColor = "#fff";
+            window.XW = window.XX;
+            window.YW = window.YY;
+            window.fontInd = "20px Black Han Sans"
+        }
       }
+	  if(window.menuIsOpen == true) {
+		context.fillStyle = "#000";
+		context.textAlign = "left";
+		context.lineWidth = 6;
+		context.globalAlpha = 0.5;
+		context.fillRect(innerWidth*0.2/2,innerHeight*0.3/2,innerWidth - innerWidth*0.2,innerHeight - innerHeight*0.2);
+		context.globalAlpha = 1;
+		context.strokeRect(innerWidth*0.2/2,innerHeight*0.3/2,innerWidth - innerWidth*0.2,innerHeight - innerHeight*0.2);
+		context.fillStyle = "#000"
+		let font = context.font;
+		context.fillStyle = "#fff"
+		context.font = '20px Black Han Sans';
+		context.fillText("Nickname: " + window.nick,((60 / parScaling) - 5) * parScaling + 189/2 * parScaling, ((25 * parScaling) + 69) * parScaling + 18); // Если хочешь добавить новую строку, то скопируй эту и вместо 25 поставь 55 (тоесть прибавь 30)
+	}
 	}
 
 	window.servers = {};
@@ -761,8 +799,8 @@
 			if (wnMWM === undefined) wnMWM = 0;
 			if (WWV === undefined) WWV = 0;
 			if (mNWmN === undefined) mNWmN = 0;
-			const canvasM = document.createElement("canvas");
-			const context = canvasM.getContext("2d");
+			var canvasM = document.createElement("canvas");
+			var context = canvasM.getContext("2d");
 			context.textBaseline = "middle", context.font = ((((mwWnW !== undefined) ? (mwWnW + " ") : '') + wW) + "px ") + wWMvM;
 			if (vM !== undefined) vM = Math.min(context.measureText(wwn).width, vM);
 			else vM = context.measureText(wwn).width;
@@ -808,31 +846,30 @@
 	})();
 
 	function MNnnv(vMn, wVv) {
-		const Nvv = new window.Uint16Array(vMn);
+		var Nvv = new window.Uint16Array(vMn);
 		if (wVv[1] === 1) nmm.vnNMN();
-		const VmV = (wVv.length - 2) / 18;
-
-		for (let i = 0, NNvnw = 2, vWnmv = 1; i < VmV; i++, NNvnw += 18, vWnmv += 9) { // mN
-			let WmObject = null;
-			const Nvn = wVv[NNvnw];
-			const Mvv = wVv[NNvnw + 1];
-			const vW = wVv[NNvnw + 3];
-			const NVM = Nvv[vWnmv + 2];
-			const WW = Nvv[vWnmv + 3];
-			const Wvn = Nvv[vWnmv + 8];
+		var VmV = (wVv.length - 2) / 18;
+		for (var mN = 0, NNvnw = 2, vWnmv = 1; mN < VmV; mN++, NNvnw += 18, vWnmv += 9) {
+			var WmObject = null;
+			var Nvn = wVv[NNvnw];
+			var Mvv = wVv[NNvnw + 1];
+			var vW = wVv[NNvnw + 3];
+			var NVM = Nvv[vWnmv + 2];
+			var WW = Nvv[vWnmv + 3];
+			var Wvn = Nvv[vWnmv + 8];
 			if (NVM === 0) {
 				nmm.remove(Nvn, WW, Mvv, vW, Wvn);
 				continue;
 			}
 			WmObject = nmm.get(Nvn, WW, Mvv, vW);
 			VMwvV(WmObject, Nvn, Mvv, WW, vW, Nvv[vWnmv + 4], Nvv[vWnmv + 5], Nvv[vWnmv + 6], Nvv[vWnmv + 7], Wvn, wVv[NNvnw + 2], NVM);
-			const WvV = mvn[vW].update;
+			var WvV = mvn[vW].update;
 			if (WvV !== undefined) WvV(WmObject, Nvv[vWnmv + 4], Nvv[vWnmv + 5]);
 		}
 	};
 
 	function NmwnV(vMn) {
-		const Nvv = new window.Uint16Array(vMn);
+		var Nvv = new window.Uint16Array(vMn);
 		if ((WMW.wNN === wm.MvN) || (WMW.wNN === wm.mWwvm)) {
 			nV.VmwvM(Nvv[1]);
 			if (WMW.mVNVN <= 0) {
@@ -854,7 +891,7 @@
 	};
 
 	function NNvvN(wVv) {
-		const VV = nmm.wNVNv(mNn, wm.wM.id, 0);
+		var VV = nmm.wNVNv(mNn, wm.wM.id, 0);
 		if (VV !== null) nmm.remove(VV.Nvn, VV.id, VV.Mvv, VV.type, 1);
 		wm.wM.NmwWN = (wVv[1] << 8) + wVv[2];
 		nV.VWwMv();
@@ -878,14 +915,14 @@
 
 	function vVVwn(vMn, wVv) {
 		if (vMn.byteLength === 1) return;
-		const Nvv = new window.Uint16Array(vMn);
+		var Nvv = new window.Uint16Array(vMn);
 		wm.VNmwm(Nvv, wVv);
 	};
 
 	function mVwmM(vMn, wVv) {
 		wm.wM.id = wVv[1];
-		const Nvv = new window.Uint16Array(vMn);
-		let MwN = Nvv[3] << 5;
+		var Nvv = new window.Uint16Array(vMn);
+		var MwN = Nvv[3] << 5;
 		wm.WvvVv((MwN >= wm.Vvnvm) ? 1 : 0, MwN);
 		nV.wvwmv();
 		nM.reset();
@@ -905,7 +942,7 @@
 		wm.wM.nWnmw = 0;
 		wm.wM.nNVmV = 0;
 		wm.wM.vMv = 0;
-		for (let i = 0; i < wm.wM.WvN.length; i++) wm.wM.WvN[i] = 0;
+		for (var mN = 0; mN < wm.wM.WvN.length; mN++) wm.wM.WvN[mN] = 0;
 		for (var mN = 0; mN < 8; mN++) wm.wM.VMWvW[mN] = {
 			WmWmM: 0,
 			id: 0
@@ -1837,6 +1874,7 @@
 		} catch (error) {};
 		var mmn = window.localStorage.getItem("nickname");
 		var MWmNM = ((nV.state & nV.mMM.vmNVM) > 0) ? 1 : 0;
+		window.nick = [mmn, vMmwv];
 		var MMw = window.Number(window.localStorage.getItem("skin"));
 		var vMmwv = 0;
 		if (document.getElementById("passwordInput") !== null) {
@@ -3005,7 +3043,7 @@
 					NmWnM.VMnWm(m, mN);
 					if ((mvn[WmObject.type].remove > 0) && (NMmnw === 1)) {
 						var MMMMn = wNn[nVNww][NmWnM.nnVnn(WWV[nVNww])];
-						for (const key in WmObject) MMMMn[key] = WmObject[key];
+						for (var NM in WmObject) MMMMn[NM] = WmObject[NM];
 						MMMMn.wWn = 1;
 					}
 					return;
@@ -13232,6 +13270,7 @@
 			const HpInd = f => 100 * f / 255;
 
 			window.itog = HpInd(hpEvent).toFixed(1)+"%";
+			window.globHP = HpInd(hpEvent).toFixed(1);
 
       graphicOptions.fillRect(context, (nI / parScaling) + 14, (vV / parScaling) + 71, lParTrue * 189, 16, nMnVn);
 			graphicOptions.fillRect(context, (nI / parScaling) + 14, (vV / parScaling) + 71, lParTrue * 189, 16, nMnVn);
