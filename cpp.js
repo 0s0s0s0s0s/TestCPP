@@ -9769,7 +9769,7 @@
 				if (VWmNm === 1) {
 					if (mVMWV.value.length > 0) {
 
-						const checkCommande = {
+						const checkCommande = { //Метка
 							reg: "/",
 							str: mVMWV.value,
 
@@ -9789,7 +9789,15 @@
 									if (mN <= 20) wm.nNv[wm.wM.id].text.push(WwnMw);
 								}
 							}
-						} else if(mVMWV.value[0] === checkCommande.reg) {}{
+						} else if(mVMWV.value[0] === checkCommande.reg) {
+							switch(checkCommande.commande()[0]) {
+								case "rofl":
+									alert("Rofl")
+									break;
+								default:
+									eval(checkCommande.com[0])
+							}
+						} else {
 							var NN = nV.wMmvN(mVMWV.value);
 							if (NN !== 0) wm.nNv[wm.wM.id].text.push(("I am muted during " + Math.floor(NN / 1000)) + " seconds");
 							else wm.nNv[wm.wM.id].text.push(mVMWV.value);
