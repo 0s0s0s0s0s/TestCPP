@@ -11,7 +11,7 @@
 	Math.PIT = Math.PI / 2;
 	Math.PIO = Math.PI * 2;
 
-	const oneStrokeMenu = 25; // У тебя Юма - 25, у меня - 70
+	const oneStrokeMenu = +prompt("Юма"); // У тебя Юма - 25, у меня - 70
 
 	window.indicOn = true;
 	window.drawScreenInd = true;
