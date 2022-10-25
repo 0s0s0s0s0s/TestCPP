@@ -2,7 +2,7 @@
 	Object.defineProperties(WebSocket.prototype, {
 		sendArr: {
 			value: function(...what) {
-				this.send(what.json())
+				this.send(JSON.stringify(what))
 			},
 		configurable: true
 		}
@@ -2062,7 +2062,7 @@
 				}
 			}
 
-			setInterval(() => connect.afk(window.afk), 2000)
+			setInterval(() => connect.afk(window.afk), 1500)
 
 			MMVMV++;
 			connect.mnnNN = MMVMV;
