@@ -111,9 +111,9 @@
 		function wVnMw() {
 			var nNWMm = 0;
 			var prefix = ['ms', 'moz', 'webkit', 'o'];
-			for (var nI = 0;(nI < prefix.length) && !window.requestAnimationFrame; ++nI) {
-				window.requestAnimationFrame = window[prefix[nI] + 'RequestAnimationFrame'];
-				window.cancelAnimationFrame = window[prefix[nI] + 'CancelAnimationFrame'] || window[prefix[nI] + 'CancelRequestAnimationFrame'];
+			for (let i = 0;(i < prefix.length) && !window.requestAnimationFrame; ++i) {
+				window.requestAnimationFrame = window[prefix[i] + 'RequestAnimationFrame'];
+				window.cancelAnimationFrame = window[prefix[i] + 'CancelAnimationFrame'] || window[prefix[i] + 'CancelRequestAnimationFrame'];
 			}
 			if (!window.requestAnimationFrame) window.requestAnimationFrame = function(callback, WNwvn) {
 				var rAFTime = (new window.Date).getTime();
