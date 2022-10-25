@@ -53,6 +53,7 @@
 	let var15 = 1;
 	let one1 = 1;
 	const graphicOptions = (function() {
+		let Wvvnm;
 		let MwN = 0;
 		let mWmmM = 0;
 		let MNVVv = 0;
@@ -300,7 +301,6 @@
 			context.beginPath();
 			context.arc(nI * parScaling, vV * parScaling, V * parScaling, NMMvN, nMnmM);
 		};
-		var Wvvnm = undefined;
 
 		function VwVMv(VvW) {
 			console.log(Wvvnm);
@@ -334,7 +334,7 @@
 		};
 
 		function VvWmV() {
-			var VvnWM = document.getElementById("bod");
+			const VvnWM = document.getElementById("bod");
 			if (VvnWM.requestFullscreen) VvnWM.requestFullscreen();
 			else if (VvnWM.msRequestFullscreen) VvnWM.msRequestFullscreen();
 			else if (VvnWM.WvWMM) VvnWM.WvWMM();
@@ -358,7 +358,7 @@
 		};
 
 		function NmwVW(src) {
-			var mwm = nNNWV(src);
+			const mwm = nNNWV(src);
 			mwm.image = graphicOptions.createMenuImg(mwm.src, mwm.image);
 			return mwm;
 		};
@@ -463,7 +463,7 @@
 		};
 	})();
 	const vnw = (function() {
-		var mMv = {
+		const mMv = {
 			vwMMw: function(Vnw, vnmVM, NNV) {
 				return Math.min((NNV * Vnw) + vnmVM(Vnw), 1);
 			},
@@ -510,9 +510,9 @@
 
 		function WWwMn(mVn) {
 			if (mVn >= 10000) {
-				var VWn = Math.floor(Math.log10(mVn)) - 2;
-				var wmNNV = Math.max(0, 3 - VWn);
-				var W = Math.floor(mVn / 1000).toString();
+				const VWn = Math.floor(Math.log10(mVn)) - 2;
+				const wmNNV = Math.max(0, 3 - VWn);
+				let W = Math.floor(mVn / 1000).toString();
 				if (wmNNV) {
 				  let VVMNN = 0;
 					W += "." + ((mVn % 1000) / 1000).toString().substring(2).substring(0, wmNNV);
@@ -533,11 +533,11 @@
 		};
 
 		function vmnmW(lParTrue) {
-			var mVn = lParTrue + "";
-			var W = "";
-			var VmV = mVn.length;
-			for (var mN = VmV - 1, NM = 0; mN >= 0; mN--, NM++) {
-				var MnM = mVn[mN];
+			const mVn = lParTrue + "";
+			let W = "";
+			const length = mVn.length; // VmV
+			for (let i = length - 1, NM = 0; i >= 0; i--, NM++) { //mN
+				let MnM = mVn[i];
 				if ((NM > 2) && (MnM !== '-')) {
 					NM = 0;
 					W = "," + W;
@@ -550,9 +550,9 @@
 		function vNmNW(NnWnV, vMm) {
 			vwV = [];
 			vwV.push.apply(vwV, NnWnV);
-			var wnWVw = [];
+			const wnWVw = [];
 			while (vwV.length > 0) {
-				var V = Math.floor(vMm() * vwV.length);
+				const V = Math.floor(vMm() * vwV.length);
 				wnWVw.push(vwV[V]);
 				vwV.splice(V, 1);
 			}
@@ -572,7 +572,7 @@
 			vNVMM: vNVMM
 		};
 	})();
-	var nmn = (function() {
+	const nmn = (function() {
 		function wnvVN(vN, NVM) {
 			if (NVM !== nmn.mnwNM) nmn.state = NVM;
 			nmn.mvN = Math.floor(vN.clientX * graphicOptions.options.NMn);
