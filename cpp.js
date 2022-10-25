@@ -21,12 +21,12 @@
 	let var15 = 1;
 	let one1 = 1;
 	const graphicOptions = (function() {
-		var MwN = 0;
-		var mWmmM = 0;
-		var MNVVv = 0;
-		var VvVmm = 0;
-		var MMMMM = new window.Array(5);
-		var windowOptions = {
+		let MwN = 0;
+		let mWmmM = 0;
+		let MNVVv = 0;
+		let VvVmm = 0;
+		const MMMMM = new window.Array(5);
+		const windowOptions = {
 			one2: one1,
 			size: window.innerWidth,
 			parTrue: true,
