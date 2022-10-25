@@ -2985,7 +2985,7 @@
 					NmWnM.VMnWm(m, mN);
 					if ((mvn[WmObject.type].remove > 0) && (NMmnw === 1)) {
 						var MMMMn = wNn[nVNww][NmWnM.nnVnn(WWV[nVNww])];
-						for (var NM in WmObject) MMMMn[NM] = WmObject[NM];
+						for (const key in WmObject) MMMMn[key] = WmObject[key];
 						MMMMn.wWn = 1;
 					}
 					return;
