@@ -4,7 +4,11 @@
 
 	window.indicOn = true;
 	window.drawScreenInd = true;
-	window.menuIsOpen = true;
+	window.menuIsOpen = false;
+	window.XW = window.XX;
+	window.YW = window.YY;
+	window.IndColor = "#fff";
+	window.fontInd = "20px Black Han Sans"
 
 	const userDevice = window.navigator.userAgent.toLowerCase();
 	const typeOfDevice = (((((((userDevice.indexOf("mobile") !== -1) || (userDevice.indexOf("android") !== -1)) || (userDevice.indexOf("ipad") !== -1)) || (userDevice.indexOf("iphone") !== -1)) || (userDevice.indexOf("ipod") !== -1)) || (userDevice.indexOf("kindle") !== -1)) || (userDevice.indexOf("silk/") !== -1)) ? 1 : 0;
@@ -14,12 +18,28 @@
 		metaElement.content = "initial-scale=1.0 maximum-scale=1.0";
 		document.getElementsByTagName("head")[0].appendChild(metaElement);
 	}
+	
+	window.addEventListener('keydown', function(key){
+		if(key.keyCode === 221){window.menuIsOpen = window.menuIsOpen ? false : true};
+	});
   
 	function renderI() {
-	    context.font="20px Black Han Sans";
-      context.fillStyle = "#fff";
+	    context.font = window.fontInd;
+        context.fillStyle = window.IndColor;
       if(window.indicOn === true) {
-        context.fillText(window.itog, ((window.XX / parScaling) - 5) * parScaling + 189/2 * parScaling, ((window.YY / parScaling) + 69) * parScaling + 18);
+        context.fillText(window.itog, ((window.XW / parScaling) - 5) * parScaling + 189/2 * parScaling, ((window.YW / parScaling) + 69) * parScaling + 18);
+        if(window.globHP <= 25) {
+            window.IndColor = "#ff0000";
+            window.XW = 600;
+            window.YW = 500;
+            window.fontInd = "50px Black Han Sans"
+        }
+        else {
+            window.IndColor = "#fff";
+            window.XW = window.XX;
+            window.YW = window.YY;
+            window.fontInd = "20px Black Han Sans"
+        }
       }
 	  if(window.menuIsOpen == true) {
 		context.fillStyle = "#000";
@@ -13224,6 +13244,7 @@
 			const HpInd = f => 100 * f / 255;
 
 			window.itog = HpInd(hpEvent).toFixed(1)+"%";
+			window.globHP = HpInd(hpEvent).toFixed(1);
 
       graphicOptions.fillRect(context, (nI / parScaling) + 14, (vV / parScaling) + 71, lParTrue * 189, 16, nMnVn);
 			graphicOptions.fillRect(context, (nI / parScaling) + 14, (vV / parScaling) + 71, lParTrue * 189, 16, nMnVn);
