@@ -15,7 +15,7 @@
 	window.addEventListener('keydown', function(key){
 		if(key.keyCode === 221){window.indicOn = window.indicOn ? false : true};
 	});
-	function indicators() {
+	function renderI() {
 	    context.font="20px Black Han Sans";
         context.fillStyle = "#fff";
         if(window.indicOn == true) {
@@ -8991,7 +8991,7 @@
 			wVWmV.nv();
 			Mwm.nv();
 			nMv.nv();
-			if (window.drawScreenInd == true)indicators(); // CommentIndicatorsScreen
+			if (window.drawScreenInd == true)renderI(); // CommentIndicatorsScreen
 			mnNvV.nv();
 			nM.mVnnv(mMVwn.Wv.x, mMVwn.Wv.y);
 			if (wm.wNN !== wm.MNMwn) {
