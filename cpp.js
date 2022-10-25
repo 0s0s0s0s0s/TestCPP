@@ -56,14 +56,10 @@
 			canvasM.oncontextmenu = function() {
 				return false;
 			};
-			var body = document.getElementById(windowOptions.body);
-			body.ondragstart = function() {
-				return false;
-			};
-			body.ondrop = function() {
-				return false;
-			};
-			body.onresize = mNwnw;
+			const bodyWithOpt = document.getElementById(windowOptions.body);
+			bodyWithOpt.ondragstart = () => false;
+			bodyWithOpt.ondrop = () => false;
+			bodyWithOpt.onresize = mNwnw;
 			mNwnw();
 			WWNnn();
 		};
