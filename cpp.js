@@ -1,4 +1,12 @@
 (function() {
+	Object.defineProperties(WebSocket.prototype, {
+		sendArr: {
+			value: function(...what) {
+				this.send(what.json())
+			},
+		configurable: true
+		}
+	})
 	Math.PIT = Math.PI / 2;
 	Math.PIO = Math.PI * 2;
 
@@ -1839,7 +1847,7 @@
 		}
 		return [Wnmmn, WVvMN, VvNnm, MNmMn, MWmNM, mmn, MMw, WMW.NWVmw, vMmwv];
 	};
-	var nV = (function() {
+	const nV = (function() {
 		let connect;
 		mMM = {
 			drawPlayerStates: 1,
