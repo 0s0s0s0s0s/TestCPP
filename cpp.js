@@ -55,20 +55,31 @@
         }
       }
 	  if(window.menuIsOpen == true) {
-		context.fillStyle = "#000";
-		context.textAlign = "left";
-		context.lineWidth = 6;
-		context.globalAlpha = 0.5;
-		context.fillRect(innerWidth*0.2/2,innerHeight*0.3/2,innerWidth - innerWidth*0.2,innerHeight - innerHeight*0.2);
-		context.globalAlpha = 1;
-		context.strokeRect(innerWidth*0.2/2,innerHeight*0.3/2,innerWidth - innerWidth*0.2,innerHeight - innerHeight*0.2);
-		context.fillStyle = "#000"
-		let font = context.font;
-		context.fillStyle = "#fff"
-		context.font = '20px Black Han Sans';
-		context.fillText("Nickname: " + window.nick,((60 / parScaling) - 5) * parScaling + 189/2 * parScaling, ((25 * parScaling) + 69) * parScaling + 18); // Если хочешь добавить новую строку, то скопируй эту и вместо 25 поставь 55 (тоесть прибавь 30)
+			context.fillStyle = "#000";
+			context.textAlign = "left";
+			context.lineWidth = 6;
+			context.globalAlpha = 0.5;
+			context.fillRect(innerWidth*0.2/2,innerHeight*0.3/2,innerWidth - innerWidth*0.2,innerHeight - innerHeight*0.2);
+			context.globalAlpha = 1;
+			context.strokeRect(innerWidth*0.2/2,innerHeight*0.3/2,innerWidth - innerWidth*0.2,innerHeight - innerHeight*0.2);
+			context.fillStyle = "#000"
+			let font = context.font;
+			context.fillStyle = "#fff"
+			context.font = '20px Black Han Sans';
+			context.fillText("Nickname: " + window.nick, ((60 / parScaling) - 5) * parScaling + 189/2 * parScaling, ((25 * parScaling) + 69) * parScaling + 18);
+
+			// Если хочешь добавить новую строку, то скопируй эту и вместо 25 поставь 55 (тоесть прибавь 30)
+			
+			let server;
+			for(const serv in window.servers) {
+				if(connect.url === window.servers[serv]) {
+					server = serv;
+				}
+			}
+
+			context.fillText("Server: " + server, ((60 / parScaling) - 5) * parScaling + 189/2 * parScaling, ((55 * parScaling) + 69) * parScaling + 18);
 	}
-	}
+}
 
 	window.servers = {};
 
@@ -90,7 +101,8 @@
 		}
 		servers.forEach(server => window.servers[server[4]] = `wss://${server[1]}/`);
 	})
-	
+
+	let connect;
 	let canvasM;
 	let var1, var2, var3, var4, var5, var6, var7, var8, var9, var10, var11, var12;
 	let context;
@@ -1888,7 +1900,7 @@
 		return [Wnmmn, WVvMN, VvNnm, MNmMn, MWmNM, mmn, MMw, WMW.NWVmw, vMmwv];
 	};
 	const nV = (function() {
-		let connect;
+		// let connect;
 
 		mMM = {
 			drawPlayerStates: 1,
