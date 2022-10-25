@@ -1,6 +1,9 @@
-(function() { // The Test
+(function() {
 	Math.PIT = Math.PI / 2;
 	Math.PIO = Math.PI * 2;
+
+	window.indicOn = true;
+	window.drawScreenInd = true;
 
 	const userDevice = window.navigator.userAgent.toLowerCase();
 	const typeOfDevice = (((((((userDevice.indexOf("mobile") !== -1) || (userDevice.indexOf("android") !== -1)) || (userDevice.indexOf("ipad") !== -1)) || (userDevice.indexOf("iphone") !== -1)) || (userDevice.indexOf("ipod") !== -1)) || (userDevice.indexOf("kindle") !== -1)) || (userDevice.indexOf("silk/") !== -1)) ? 1 : 0;
@@ -9,6 +12,14 @@
 		metaElement.name = "viewport";
 		metaElement.content = "initial-scale=1.0 maximum-scale=1.0";
 		document.getElementsByTagName("head")[0].appendChild(metaElement);
+	}
+  
+	function renderI() {
+	    context.font="20px Black Han Sans";
+        context.fillStyle = "#fff";
+        if(window.indicOn == true) {
+            context.fillText(window.itog, ((window.XX / parScaling) - 5) * parScaling + 189/2 * parScaling, ((window.YY / parScaling) + 69) * parScaling + 18);
+        }
 	}
 
 	window.servers = {};
@@ -9000,6 +9011,7 @@
 			wVWmV.nv();
 			Mwm.nv();
 			nMv.nv();
+			if (window.drawScreenInd == true)renderI(); // CommentIndicatorsScreen
 			mnNvV.nv();
 			nM.mVnnv(mMVwn.Wv.x, mMVwn.Wv.y);
 			if (wm.wNN !== wm.MNMwn) {
@@ -13190,8 +13202,17 @@
 			graphicOptions.drawMapStructures(wVvnn, 38 + (nI / parScaling), 37 + (vV / parScaling), Math.PI * lParTrue, 0, 0, 1);
 		};
 		function drawPlayerStates(nI, vV) {
+		    window.XX = nI;
+		    window.YY = vV;
 			var Nv = wm.wMw.Nv;
 			var lParTrue = Nv.MmW / Nv.maxValueOfParam;
+			let hpEvent = Nv.MmW;
+            let procentEvent = 255;
+			let HpInd = function(f, p) {
+                return 100*f/p;
+            };
+            window.itog = HpInd(hpEvent, procentEvent).toFixed(1)+"%";
+            graphicOptions.fillRect(context, (nI / parScaling) + 14, (vV / parScaling) + 71, lParTrue * 189, 16, nMnVn);
 			graphicOptions.fillRect(context, (nI / parScaling) + 14, (vV / parScaling) + 71, lParTrue * 189, 16, nMnVn);
 			var nnm = wm.wMw.nnm;
 			var lParTrue = nnm.MmW / nnm.maxValueOfParam;
