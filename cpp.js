@@ -935,7 +935,7 @@
 		var MwN = Nvv[3] << 5;
 		wm.WvvVv((MwN >= wm.Vvnvm) ? 1 : 0, MwN);
 		nV.wvwmv();
-		nM.reset();
+		user.reset();
 		nmm.NnvMM = Nvv[1];
 		wm.WnmVM = wVv[4];
 		wm.wNN = wVv[5];
@@ -1013,7 +1013,7 @@
 		wm.wM.vVw = 0;
 		wm.wM.NwnWW = 0;
 		wm.wM.Mvwnw = 0;
-		nM.scale = 0;
+		user.scale = 0;
 		wm.wM.MwNmV = [];
 		wm.wM.WNWVM = 0;
 		for (var mN = 0; mN < 8; mN++) {
@@ -1028,8 +1028,8 @@
 			var wM = wm.nNv[wVv[NwNnN]];
 			wM.id = wVv[NwNnN];
 			wm.vWnnV(wM, wVv[NwNnN + 1]);
-			wM.MWm = (wVv[NwNnN + 2] === 0) ? 0 : (nM.vnn + (wVv[NwNnN + 2] * 2000));
-			wM.Vvm = (wVv[NwNnN + 3] === 0) ? 0 : (nM.vnn + (wVv[NwNnN + 3] * 1000));
+			wM.MWm = (wVv[NwNnN + 2] === 0) ? 0 : (user.vnn + (wVv[NwNnN + 2] * 2000));
+			wM.Vvm = (wVv[NwNnN + 3] === 0) ? 0 : (user.vnn + (wVv[NwNnN + 3] * 1000));
 			wM.nVv = wVv[NwNnN + 4];
 			if (wM.nVv !== 0) wm.MNW--;
 			wM.VvNnm = Nvv[nVvvn + 3];
@@ -1071,7 +1071,7 @@
 	function MNmmM(WW, angle) {
 		var VV = nmm.wNVNv(mNn, WW, 0);
 		if (VV !== null) {
-			if (WW === wm.wM.id) nM.vvwMv = 3;
+			if (WW === wm.wM.id) user.vvwMv = 3;
 			VV.mWM = 300;
 			VV.VMv = ((angle * 2) * Math.PI) / 255;
 		}
@@ -1287,7 +1287,7 @@
 		wm.wM.mWwnw[MMNwv] = 1;
 		wm.wM.nMV -= nvn[MMNwv].detail.nMnmm;
 		var parScaling = nvn[MMNwv].scale;
-		if (parScaling !== undefined) nM.scale = parScaling;
+		if (parScaling !== undefined) user.scale = parScaling;
 		else {
 			var wwwvn = nvn[MMNwv].wwwvn;
 			if (wwwvn !== undefined) {
@@ -1399,7 +1399,7 @@
 	var mwmVW = 325;
 
 	function mNVvW(vvwMv) {
-		nM.MWmmv = -vvwMv;
+		user.MWmmv = -vvwMv;
 	};
 
 	function mMvvv(wVv) {
@@ -1480,8 +1480,8 @@
 				var wM = wm.nNv[WW];
 				Wv[NM].id = WW;
 				Wv[NM].WmWmM = 14000;
-				wM.x = nI * nM.MWNVV;
-				wM.y = vV * nM.MWNVV;
+				wM.x = nI * user.MWNVV;
+				wM.y = vV * user.MWNVV;
 				if (mnW.nmw(wM.rx, wM.ry, wM.x, wM.y) > 3000000) {
 					wM.rx = wM.x;
 					wM.ry = wM.y;
@@ -1499,8 +1499,8 @@
 	function nMnmW(wVv) {
 		if (wVv[1] !== wm.wM.id) {
 			var wM = wm.nNv[wVv[1]];
-			wM.x = wVv[2] * nM.MWNVV;
-			wM.y = wVv[3] * nM.MWNVV;
+			wM.x = wVv[2] * user.MWNVV;
+			wM.y = wVv[3] * user.MWNVV;
 			wM.nnVMN = wVv[4];
 			wm.wM.MMnnM = wM.id;
 			wm.wM.NWMNW = 14000;
@@ -1522,7 +1522,7 @@
 				wm.wM.mmwVv[VmW - 2][1] = NM;
 			}
 		}
-		nM.mvMWW();
+		user.mvMWW();
 	};
 
 	function wMvMn() {
@@ -1544,21 +1544,21 @@
 	};
 
 	function VnMNV(NN) {
-		nM.VvmnW(NN * 1000);
+		user.VvmnW(NN * 1000);
 	};
 
 	function mVvvw(WW, NN) {
-		wm.nNv[WW].MWm = nM.vnn + (NN * 2000);
+		wm.nNv[WW].MWm = user.vnn + (NN * 2000);
 	};
 
 	function NMnNm(WW, NN) {
-		wm.nNv[WW].Vvm = nM.vnn + (NN * 1000);
+		wm.nNv[WW].Vvm = user.vnn + (NN * 1000);
 	};
 
 	function nWnMN(WW, Vvm) {
 		var wM = wm.nNv[WW];
-		wM.Vvm = (Vvm !== 0) ? nM.vnn : 0;
-		wM.MWm = nM.vnn;
+		wM.Vvm = (Vvm !== 0) ? user.vnn : 0;
+		wM.MWm = user.vnn;
 	};
 
 	function NMWVw(MwN) {
@@ -2541,7 +2541,7 @@
 			}
 			WmObject.x = vnw.MmM(WmObject.x, WmObject.rx, WmObject.MmM);
 			WmObject.y = vnw.MmM(WmObject.y, WmObject.ry, WmObject.MmM);
-			WmObject.mN = Math.max(0, Math.min(VwMMn, Math.floor(WmObject.y / nM.vVm)));
+			WmObject.mN = Math.max(0, Math.min(VwMMn, Math.floor(WmObject.y / user.vVm)));
 			WmObject.NM = Math.max(0, Math.min(wwvvv, Math.floor(WmObject.x / nM.vVm)));
 			if ((wm.wM.id === WmObject.Nvn) && (WmObject.id === 0)) WmObject.angle = nmn.angle;
 			else if (WmObject.Nvn === 0) WmObject.angle = vnw.MmM(WmObject.angle, WmObject.WMnVN, WmObject.MmM / 2);
@@ -12311,7 +12311,7 @@
 			nVN.mnvwv = mnvwv;
 		}
 	} catch (error) {}
-	var nM = (function() {
+	let user = (function() {
 		var vVm = 100;
 		var MMn = vVm / 2;
 		var VwMwV = 1;
