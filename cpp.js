@@ -11,15 +11,15 @@
 		document.getElementsByTagName("head")[0].appendChild(metaElement);
 	}
 	
-	var canvasM;
-	var var1, var2, var3, var4, var5, var6, var7, var8, var9, var10, var11, var12;
-	var context;
-	var var13 = 0;
-	var var14 = 0;
-	var parScaling = 1;
-	var p100 = 100;
-	var var15 = 1;
-	var one1 = 1;
+	let canvasM;
+	let var1, var2, var3, var4, var5, var6, var7, var8, var9, var10, var11, var12;
+	let context;
+	let var13 = 0;
+	let var14 = 0;
+	let parScaling = 1;
+	let p100 = 100;
+	let var15 = 1;
+	let one1 = 1;
 	const graphicOptions = (function() {
 		var MwN = 0;
 		var mWmmM = 0;
