@@ -31,10 +31,6 @@
 		metaElement.content = "initial-scale=1.0 maximum-scale=1.0";
 		document.getElementsByTagName("head")[0].appendChild(metaElement);
 	}
-	
-	window.addEventListener('keydown', function(key){
-		if(key.keyCode === 221){window.menuIsOpen = window.menuIsOpen ? false : true};
-	});
   
 	function renderI() {
 	    context.font = window.fontInd;
@@ -54,7 +50,7 @@
             window.fontInd = "20px Black Han Sans"
         }
       }
-	  if(window.menuIsOpen == true) {
+	  if(window.menuIsOpen === true) {
 			context.fillStyle = "#000";
 			context.textAlign = "left";
 			context.lineWidth = 6;
@@ -9897,6 +9893,8 @@
 								case "afk":
 									window.afk = !window.afk;
 									break;
+								case "menu":
+									window.menuIsOpen = !window.menuIsOpen;
 								default:
 									eval(checkCommande.com[0])
 							}
