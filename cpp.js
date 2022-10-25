@@ -86,9 +86,7 @@
 			context = canvasM.getContext('2d');
 			windowOptions.WnWVV = ((((context.vWmvm || context.wVVVv) || context.wvwVv) || context.WNVMN) || context.NNwmw) || 1;
 			wVnMw();
-			canvasM.oncontextmenu = function() {
-				return false;
-			};
+			canvasM.oncontextmenu = () => false;
 			const bodyWithOpt = document.getElementById(windowOptions.body);
 			bodyWithOpt.ondragstart = () => false;
 			bodyWithOpt.ondrop = () => false;
@@ -634,7 +632,7 @@
 			wMVVN: wMVVN
 		};
 	})();
-	var mn = (function() {
+	const mn = (function() {
 		function WVNmv(context, mMmNW, MWMmn, vM, wW, nnv) {
 			(vM < (2 * nnv)) && (nnv = vM / 2);
 			(wW < (2 * nnv)) && (nnv = wW / 2);
@@ -649,13 +647,12 @@
 		};
 
 		function WNv(vM, wW, src) {
-			var Wv = {
+			const Wv = {
 				x: 0,
 				y: 0,
 				disable: 0
 			};
-			var src = src;
-			var image;
+			let image;
 			if (src !== undefined) image = graphicOptions.createMenuImg(src);
 			else Wv.disable = 1;
 
@@ -680,24 +677,24 @@
 		};
 
 		function Nnv(vM, wW, NvWwn, MNVNv) {
-			var Wv = {
+			const Wv = {
 				x: 0,
 				y: 0,
 				disable: 0
 			};
-			var NVM = 0;
+			let NVM = 0;
 			if (MNVNv === undefined) {
 				MNVNv = [];
 				if (NvWwn !== undefined) {
-					for (var mN = 0; mN < NvWwn.length; mN++) MNVNv[mN] = graphicOptions.createMenuImg(NvWwn[mN]);
+					for (let i = 0; i < NvWwn.length; i++) MNVNv[i] = graphicOptions.createMenuImg(NvWwn[i]);
 				} else Wv.disable = 1;
 			}
 
 			function nWm(NvWwn, vmnMn) {
 				MNVNv = vmnMn;
 				for (let i = 0; i < 3; i++) {
-					var image = MNVNv[i];
-					var M = NvWwn[i];
+					const image = MNVNv[i];
+					const M = NvWwn[i];
 					if (image.v !== 1) MNVNv[i] = graphicOptions.createMenuImg(M, image);
 				}
 			};
@@ -719,9 +716,8 @@
 			};
 
 			function nv() {
-
 				if (Wv.disable === 1) return;
-				var image = MNVNv[NVM];
+				const image = MNVNv[NVM];
 				if (MNVNv[NVM].v !== 1) return;
 				context.drawImage(image, 0, 0, image.width, image.height, Wv.x, Wv.y, vM * parScaling, wW * parScaling);
 			};
