@@ -15,11 +15,11 @@
 	}
   
 	function renderI() {
-	    context.font="20px Black Han Sans";
-        context.fillStyle = "#fff";
-        if(window.indicOn == true) {
-            context.fillText(window.itog, ((window.XX / parScaling) - 5) * parScaling + 189/2 * parScaling, ((window.YY / parScaling) + 69) * parScaling + 18);
-        }
+	  context.font = "20px Black Han Sans";
+    context.fillStyle = "#fff";
+    if(window.indicOn === true) {
+      context.fillText(window.itog, ((window.XX / parScaling) - 5) * parScaling + 189/2 * parScaling, ((window.YY / parScaling) + 69) * parScaling + 18);
+    }
 	}
 
 	window.servers = {};
@@ -13202,17 +13202,19 @@
 			graphicOptions.drawMapStructures(wVvnn, 38 + (nI / parScaling), 37 + (vV / parScaling), Math.PI * lParTrue, 0, 0, 1);
 		};
 		function drawPlayerStates(nI, vV) {
-		    window.XX = nI;
-		    window.YY = vV;
+		  window.XX = nI;
+		  window.YY = vV;
+
 			var Nv = wm.wMw.Nv;
 			var lParTrue = Nv.MmW / Nv.maxValueOfParam;
+
 			let hpEvent = Nv.MmW;
-            let procentEvent = 255;
-			let HpInd = function(f, p) {
-                return 100*f/p;
-            };
-            window.itog = HpInd(hpEvent, procentEvent).toFixed(1)+"%";
-            graphicOptions.fillRect(context, (nI / parScaling) + 14, (vV / parScaling) + 71, lParTrue * 189, 16, nMnVn);
+
+			let HpInd = function(f) {
+        return 100 * f / 255;
+      };
+      window.itog = HpInd(hpEvent).toFixed(1)+"%";
+      graphicOptions.fillRect(context, (nI / parScaling) + 14, (vV / parScaling) + 71, lParTrue * 189, 16, nMnVn);
 			graphicOptions.fillRect(context, (nI / parScaling) + 14, (vV / parScaling) + 71, lParTrue * 189, 16, nMnVn);
 			var nnm = wm.wMw.nnm;
 			var lParTrue = nnm.MmW / nnm.maxValueOfParam;
