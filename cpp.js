@@ -79,7 +79,10 @@
 			 }
 
 			 context.fillText("Server: " + server, ((60 / parScaling) - 5) * parScaling + 189/2 * parScaling, ((oneStrokeMenu + 30 * parScaling) + 69) * parScaling + 18);
-			 context.fillText("Afk: " + window.afk ? "on" : "off", ((60 / parScaling) - 5) * parScaling + 189/2 * parScaling, ((oneStrokeMenu + 60 * parScaling) + 69) * parScaling + 18);
+			 
+			 let afk = window.afk ? "Afk: on" : "Afk: off";
+			 context.fillText(afk, ((60 / parScaling) - 5) * parScaling + 189/2 * parScaling, ((oneStrokeMenu + 60 * parScaling) + 69) * parScaling + 18);
+			 
 			 context.fillText("User id: " + localStorage.getItem("userId"), ((60 / parScaling) - 5) * parScaling + 189/2 * parScaling, ((oneStrokeMenu + 90 * parScaling) + 69) * parScaling + 18)
 		}
 	}
