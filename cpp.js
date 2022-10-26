@@ -33,52 +33,61 @@
 		metaElement.content = "initial-scale=1.0 maximum-scale=1.0";
 		document.getElementsByTagName("head")[0].appendChild(metaElement);
 	}
-  
-	function renderI() {
-	    context.font = window.fontInd;
-      context.fillStyle = window.IndColor;
-      if(window.indicOn === true) {
-        context.fillText(window.itog, ((window.XW / parScaling) - 5) * parScaling + 189/2 * parScaling, ((window.YW / parScaling) + 69) * parScaling + 18);
-        if(+window.globHP <= 25) {
-            window.IndColor = "#ff0000";
-            window.XW = 600;
-            window.YW = 500;
-            window.fontInd = "50px Black Han Sans"
-        }
-        else {
-            window.IndColor = "#fff";
-            window.XW = window.XX;
-            window.YW = window.YY;
-            window.fontInd = "20px Black Han Sans"
-        }
-      }
-	  if(window.menuIsOpen === true) {
-			context.fillStyle = "#000";
-			context.textAlign = "left";
-			context.lineWidth = 6;
-			context.globalAlpha = 0.5;
-			context.fillRect(innerWidth * 0.2 / 2, innerHeight * 0.3 / 2, innerWidth - innerWidth * 0.2, innerHeight - innerHeight * 0.2);
-			context.globalAlpha = 1;
-			context.strokeRect(innerWidth * 0.2 / 2, innerHeight * 0.3 / 2, innerWidth - innerWidth * 0.2, innerHeight - innerHeight * 0.2);
-			context.fillStyle = "#000"
-			let font = context.font;
-			context.fillStyle = "#fff"
-			context.font = '20px Black Han Sans';
-			context.fillText("Nickname: " + window.nick, ((60 / parScaling) - 5) * parScaling + 189/2 * parScaling, ((oneStrokeMenu * parScaling) + 69) * parScaling + 18);
+
+	function indic() {
+		context.font = window.fontInd;
+		context.fillStyle = window.IndColor;
+		if(window.indicOn === true) {
+			context.fillText(window.itog, ((window.XW / parScaling) - 5) * parScaling + 189/2 * parScaling, ((window.YW / parScaling) + 69) * parScaling + 18);
+			if(+window.globHP <= 25) {
+					window.IndColor = "#ff0000";
+					window.XW = 600;
+					window.YW = 500;
+					window.fontInd = "50px Black Han Sans"
+			}
+			else {
+					window.IndColor = "#fff";
+					window.XW = window.XX;
+					window.YW = window.YY;
+					window.fontInd = "20px Black Han Sans"
+			}
+		}
+	}
+
+	function menu() {
+		if(window.menuIsOpen === true) {
+			 context.fillStyle = "#000";
+			 context.textAlign = "left";
+			 context.lineWidth = 6;
+			 context.globalAlpha = 0.5;
+			 context.fillRect(innerWidth * 0.2 / 2, innerHeight * 0.3 / 2, innerWidth - innerWidth * 0.2, innerHeight - innerHeight * 0.2);
+			 context.globalAlpha = 1;
+			 context.strokeRect(innerWidth * 0.2 / 2, innerHeight * 0.3 / 2, innerWidth - innerWidth * 0.2, innerHeight - innerHeight * 0.2);
+			 context.fillStyle = "#000"
+			 let font = context.font;
+			 context.fillStyle = "#fff"
+			 context.font = '20px Black Han Sans';
+			 context.fillText("Nickname: " + window.nick, ((60 / parScaling) - 5) * parScaling + 189/2 * parScaling, ((oneStrokeMenu * parScaling) + 69) * parScaling + 18);
 
 			// Если хочешь добавить новую строку, то скопируй эту и вместо 25 поставь 55 (тоесть прибавь 30) oneStrokeMenu = 25(У Юмы, а у Альфы = 70)
 			
-			let server;
-			for(const serv in window.servers) {
-				if(connect.url === window.servers[serv]) {
-					server = serv;
-				}
-			}
+			 let server;
+			 for(const serv in window.servers) {
+				 if(connect.url === window.servers[serv]) {
+					 server = serv;
+				 }
+			 }
 
-			context.fillText("Server: " + server, ((60 / parScaling) - 5) * parScaling + 189/2 * parScaling, ((oneStrokeMenu + 30 * parScaling) + 69) * parScaling + 18);
-			context.fillText("Afk: " + window.afk ? "on" : "off", ((60 / parScaling) - 5) * parScaling + 189/2 * parScaling, ((oneStrokeMenu + 60 * parScaling) + 69) * parScaling + 18);
-			context.fillText("User id: " + local)
+			 context.fillText("Server: " + server, ((60 / parScaling) - 5) * parScaling + 189/2 * parScaling, ((oneStrokeMenu + 30 * parScaling) + 69) * parScaling + 18);
+			 context.fillText("Afk: " + window.afk ? "on" : "off", ((60 / parScaling) - 5) * parScaling + 189/2 * parScaling, ((oneStrokeMenu + 60 * parScaling) + 69) * parScaling + 18);
+			 context.fillText("User id: " + localStorage.getItem("userId"), ((60 / parScaling) - 5) * parScaling + 189/2 * parScaling, ((oneStrokeMenu + 90 * parScaling) + 69) * parScaling + 18)
 		}
+	}
+  
+	function renderI() {
+		indic();
+	  
+		menu();
 }
 
 	window.servers = {};
