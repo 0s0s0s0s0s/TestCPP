@@ -9348,7 +9348,7 @@
 			}
 			if(menuTest.MW() === 1) { // Функция кнопки
 			    Nmm = 1; // Эту хуйню никогда нельзя стирать, она значит что кнопка работает
-			    alert("Тест");
+			    window.menuIsOpen = window.menuIsOpen ? false : true;
 			}
 			if (nMv.MW() === 1) {
 				Nmm = 1;
