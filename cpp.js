@@ -23,6 +23,8 @@
 	window.YW = window.YY;
 	window.IndColor = "#fff";
 	window.fontInd = "20px Black Han Sans"
+	
+	window.noneMapEditor = false; // true = не в мап эдиторе, false = в мап эдиторе (卍卍卍卍 nein nein nein) ЭАХАЭХАЭХАЭХАЭЭ БЛЯ СТЕРИ ЭТУ ХУЙНЮ КОГДА ПОСМОТРИШЬ, ОКЕЙ?
 
 
 	const userDevice = window.navigator.userAgent.toLowerCase();
@@ -84,6 +86,7 @@
 			 context.fillText(afk, ((60 / parScaling) - 5) * parScaling + 189/2 * parScaling, ((oneStrokeMenu + 60 * parScaling) + 69) * parScaling + 18);
 			 
 			 context.fillText("User id: " + localStorage.getItem("userId"), ((60 / parScaling) - 5) * parScaling + 189/2 * parScaling, ((oneStrokeMenu + 90 * parScaling) + 69) * parScaling + 18)
+			 context.fillText("NoneMapEditor: " + window.noneMapEditor, ((60 / parScaling) - 5) * parScaling + 189/2 * parScaling, ((oneStrokeMenu + 120 * parScaling) + 69) * parScaling + 18)
 		}
 	}
   
@@ -2135,6 +2138,7 @@
 				MwWWm();
 			};
 			connect.onclose = function(vN) {
+			    window.noneMapEditor = false;
 				if (this.mnnNN !== MMVMV) return;
 				MwWWm();
 			};
@@ -2145,6 +2149,7 @@
 				else VnmMV(vN.data);
 			};
 			connect.onopen = function(vN) {
+			    window.noneMapEditor = true;
 				WnVww = -1;
 				VVN = var14;
 				window.clearTimeout(Vnmnn);
