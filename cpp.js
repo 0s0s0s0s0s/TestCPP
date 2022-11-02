@@ -8948,6 +8948,7 @@
 			mnNvV = mn.Nnv(40, 40, ["img/team-button-out.png", "img/team-button-in.png", "img/team-button-click.png"]);
 			MNn = mn.Nnv(34, 33, ["img/close-leaderboard-out.png", "img/close-leaderboard-in.png", "img/close-leaderboard-click.png"]);
 			WvwVn = mn.Nnv(34, 33, ["img/open-leaderboard-out.png", "img/open-leaderboard-in.png", "img/open-leaderboard-click.png"]);
+			menuTest = mn.Nnv(26.5, 26.5, ["img/zoom-button-out.png", "img/zoom-button-in.png", "img/zoom-button-click.png"]);
 			Mvwmv = document.getElementById("chat");
 			mMNvm = Mvwmv.style;
 			vVVNM = {
@@ -9026,6 +9027,9 @@
 				vWv *= WnV;
 				WMn *= WnV;
 			}
+			menuTest.Wv.x = (var2 - Math.floor(26.5 * parScaling)) + Math.floor(-70 * parScaling); // Тоже вроде позиция кнопки
+            menuTest.Wv.y = (var3 - Math.floor(26.5 * parScaling)) + Math.floor(-7 * parScaling); // Позиция кнопки
+			
 			mMVwn.Wv.x = Math.floor(5 * parScaling) + vWv;
 			mMVwn.Wv.y = ((var2 - Math.floor(174 * parScaling)) + Math.floor(-5 * parScaling)) + WMn;
 			wNMwm.Wv.x = (var3 - Math.floor(134 * parScaling)) + vWv;
@@ -9095,6 +9099,7 @@
 			wVWmV.nv();
 			Mwm.nv();
 			nMv.nv();
+			menuTest.nv();
 			if (window.drawScreenInd === true) renderI(); // CommentIndicatorsScreen
 			mnNvV.nv();
 			user.mVnnv(mMVwn.Wv.x, mMVwn.Wv.y);
@@ -9148,6 +9153,7 @@
 					mnNvV.MVv(mn.Vmw);
 					MNn.MVv(mn.Vmw);
 					WvwVn.MVv(mn.Vmw);
+					menuTest.MVv(mn.Vmw);
 					mMNvm.display = "none";
 					vwm.wnm();
 					return 0;
@@ -9188,6 +9194,9 @@
 			}
 			if (WvwVn.MW() === 1) {
 				Nmm = 1;
+			}
+			if(menuTest.MW() === 1) {
+			    Nmm = 1;
 			}
 			if (wm.wM.mNvWw !== 0) {
 				if ((Nnmvn.MW() === 1) || (nMvvn.MW() === 1)) Nmm = 1;
@@ -9336,6 +9345,10 @@
 					audioHandler.wmN(audioHandler.vm.open, 1, 0);
 					return;
 				}
+			}
+			if(menuTest.MW() === 1) { // Функция кнопки
+			    Nmm = 1; // Эту хуйню никогда нельзя стирать, она значит что кнопка работает
+			    alert("Тест");
 			}
 			if (nMv.MW() === 1) {
 				Nmm = 1;
@@ -10892,7 +10905,8 @@
 		var mwv = 0;
 
 		function WWMvV() {
-			NWM.show();
+		    menuTest.show();
+			NWM.show(); // ПОМЕТКА1 (Она нихуя не значит, забей хуй, но всё же пусть будет метка) кнопка
 			nwmNM.show();
 			wm.wM.id = 1;
 			wm.WnmVM = 2;
@@ -11152,6 +11166,7 @@
 			}
 			var image = wmNMN[wm.wM.nwm][wm.wM.vNW];
 			context.drawImage(image, 5 * parScaling, NWM.Wv.y - (42 * parScaling), image.wMv * parScaling, image.nNn * parScaling);
+			context.drawImage(image, 5 * parScaling, menuTest.Wv.y - (42 * parScaling), image.wMv * parScaling, image.nNn * parScaling); // Позиция кнопки (5 * parScaling это X, menuTest.Wv.y - (42 * parScaling) это Y, Меняй там только числа 5 и 42)
 		};
 		var nvwMw = null;
 		var Wvm = 0;
@@ -11168,13 +11183,15 @@
 		var WNmWN;
 		var VvMNW;
 		var MvwWW;
+		var menuTest;
 		var NWM;
 		var nwmNM;
 		var MWmmN;
 		var vNvMV;
 		var wMnmw;
 		var MnNmw;
-
+        var menuTest;
+        
 		function wnW() {
 			nvwMw = mn.vmv("Copied to clipboard", "'Comic Han Sans MS', sans-serif", "#FFFFFF", 40, 350, "#000000", 18, 18, undefined, undefined, 0.6);
 			for (mN = 0; mN < 64; mN++) mNM.push(mn.Nnv(40, 40, null, mwNMw));
@@ -11195,6 +11212,7 @@
 			vNvMV = mn.Nnv(46.5, 46.5, ["img/import-button-out.png", "img/import-button-in.png", "img/import-button-click.png"]);
 			wMnmw = mn.Nnv(46.5, 46.5, ["img/copy-paste-button-out.png", "img/copy-paste-button-in.png", "img/copy-paste-button-click.png"]);
 			MnNmw = mn.Nnv(60, 60, ["img/home-button-out.png", "img/home-button-in.png", "img/home-button-click.png"]);
+			menuTest = mn.Nnv(46.5, 46.5, ["img/zoom-button-out.png", "img/zoom-button-in.png", "img/zoom-button-click.png"]); // Это ширина кнопки и текстура
 		};
 		var vwm;
 		var MnV = new nmn.wMVVN;
@@ -11297,6 +11315,8 @@
 			VvMNW.Wv.y = Math.floor(5 * parScaling) - WMn;
 			MvwWW.Wv.x = VvMNW.Wv.x + Math.floor(-70 * parScaling);
 			MvwWW.Wv.y = Math.floor(5 * parScaling) - WMn;
+			menuTest.Wv.x = Math.floor(5 * parScaling); // X Позиция кнопки
+			menuTest.Wv.y = (var2 - Math.floor(46.5 * parScaling)) + Math.floor(-5 * parScaling); // Y Позиция кнопки
 			NWM.Wv.x = Math.floor(5 * parScaling);
 			NWM.Wv.y = (var2 - Math.floor(46.5 * parScaling)) + Math.floor(-5 * parScaling);
 			nwmNM.Wv.x = NWM.Wv.x + Math.floor(50 * parScaling);
@@ -11329,6 +11349,7 @@
 			VvMNW.nv();
 			MvwWW.nv();
 			NWM.nv();
+			menuTest.nv();
 			nwmNM.nv();
 			MWmmN.nv();
 			vNvMV.nv();
@@ -11377,6 +11398,7 @@
 					WNmWN.MVv(mn.Vmw);
 					VvMNW.MVv(mn.Vmw);
 					MvwWW.MVv(mn.Vmw);
+					menuTest.Mvv(mn.Vmw);
 					NWM.MVv(mn.Vmw);
 					nwmNM.MVv(mn.Vmw);
 					MWmmN.MVv(mn.Vmw);
@@ -11430,6 +11452,9 @@
 			}
 			if (nwmNM.MW() === 1) {
 				Nmm = 1;
+			}
+			if(menuTest.MW() === 1) {
+			    Nmm = 1;
 			}
 			if (MWmmN.MW() === 1) {
 				Nmm = 1;
@@ -11749,6 +11774,9 @@
 			}
 			if (nwmNM.MW() === 1) {
 				Nmm = 1;
+			}
+			if(menuTest.MW() === 1) {
+			    Nmm = 1;
 			}
 			if (MWmmN.MW() === 1) {
 				Nmm = 1;
