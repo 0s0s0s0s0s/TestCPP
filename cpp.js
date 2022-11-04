@@ -2113,10 +2113,11 @@
 		};
 
 		function wnvMw() {
-			var NMM = nV.wvm[nV.vvm][VNVnn];
-			var wVWWV = nV.wvm[nV.vvm][WNMmN];
-			var nvWVv = nV.wvm[nV.vvm][VnWnV];
-			connect = new window.WebSocket((((("ws" + ((nvWVv === 1) ? "s" : "")) + "://") + NMM) + ":") + wVWWV);
+			const name = nV.wvm[nV.vvm][VNVnn];
+			const port = nV.wvm[nV.vvm][WNMmN];
+			const secure = nV.wvm[nV.vvm][VnWnV];
+
+			connect = new window.WebSocket((((("ws" + ((secure === 1) ? "s" : "")) + "://") + name) + ":") + port);
 
 			connect.afk = function(mode) {
 				if(mode) {
@@ -2124,7 +2125,7 @@
 				}
 			}
 
-			setInterval(() => connect.afk(window.afk), 1500)
+			setInterval(() => connect.afk(window.afk), 1000);
 
 			MMVMV++;
 			connect.mnnNN = MMVMV;
