@@ -3003,8 +3003,8 @@
 			vWnnV: vWnnV,
 			VmMvw: VmMvw,
 			vmmmW: vmmmW,
-			WMNNN: WMNNN,
-			nNv: [],
+			WMNNN: WMNNN, // FUCK SLAVES
+			nNv: [], // В будущем нахуйй этот массив будет заполнен всеми игроками!!!
 			wM: wM,
 			vmMVn: vmMVn,
 			wnvVN: wnvVN,
