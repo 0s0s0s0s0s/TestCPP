@@ -2376,13 +2376,13 @@
 			user.MNW = -1;
 			for (var mN = 0; mN < user.WnmVM; mN++) {
 				if (nwvWM[mN] !== 0) user.MNW++;
-				user.nNv[mN] = new WmmNV(mN, nwvWM[mN]);
+				user.nNv[mN] = new Player(mN, nwvWM[mN]);
 			}
 		};
 
-		function WmmNV(WW, mmn) {
-			this.mmn = (wM.vnWMW === 1) ? ((mmn + "#") + WW) : mmn;
-			this.id = WW;
+		function Player(id, name) {
+			this.mmn = (wM.vnWMW === 1) ? ((name + "#") + id) : name;
+			this.id = id;
 			this.VvNnm = 0;
 			this.MMw = 0;
 			this.nVv = 0;
