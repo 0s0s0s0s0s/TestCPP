@@ -870,25 +870,25 @@
 	})();
 
 	function MNnnv(bits, int8) { // wMn, wVv
-		var Nvv = new window.Uint16Array(bits);
+		const Nvv = new window.Uint16Array(bits);
 		// Nvv[5] = x, Nvv[6] = y; int[2] = id(Если не равен 0 - игрок)
 		if (int8[1] === 1) nmm.vnNMN();
-		var VmV = (int8.length - 2) / 18;
-		for (var mN = 0, NNvnw = 2, vWnmv = 1; mN < VmV; mN++, NNvnw += 18, vWnmv += 9) {
-			var WmObject = null;
-			var Nvn = int8[NNvnw];
-			var Mvv = int8[NNvnw + 1];
-			var vW = int8[NNvnw + 3];
-			var NVM = Nvv[vWnmv + 2];
-			var WW = Nvv[vWnmv + 3];
-			var Wvn = Nvv[vWnmv + 8];
+		const VmV = (int8.length - 2) / 18;
+		for (let i = 0, NNvnw = 2, vWnmv = 1; i < VmV; i++, NNvnw += 18, vWnmv += 9) {
+			let WmObject = null;
+			const Nvn = int8[NNvnw];
+			const Mvv = int8[NNvnw + 1];
+			const vW = int8[NNvnw + 3];
+			const NVM = Nvv[vWnmv + 2];
+			const WW = Nvv[vWnmv + 3];
+			const Wvn = Nvv[vWnmv + 8];
 			if (NVM === 0) {
 				nmm.remove(Nvn, WW, Mvv, vW, Wvn);
 				continue;
 			}
 			WmObject = nmm.get(Nvn, WW, Mvv, vW);
 			VMwvV(WmObject, Nvn, Mvv, WW, vW, Nvv[vWnmv + 4], Nvv[vWnmv + 5], Nvv[vWnmv + 6], Nvv[vWnmv + 7], Wvn, int8[NNvnw + 2], NVM);
-			var WvV = mvn[vW].update;
+			const WvV = mvn[vW].update;
 			if (WvV !== undefined) WvV(WmObject, Nvv[vWnmv + 4], Nvv[vWnmv + 5]);
 		}
 	};
