@@ -95,11 +95,11 @@
 
 	window.servers = {};
 
-	(async function serversJSON() {
-		const res = await fetch("./json/servers.json");
-		const servers = await res.json();
+	(async function getPromiseServers() {
+		const responseServers = await fetch("./json/servers.json");
+		const arrayServers = await res.json();
 
-		return servers;
+		return arrayServers;
 	})().then(res => {
 		const servers = res.filter(server => server[0] !== "???");
 
