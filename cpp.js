@@ -871,6 +871,7 @@
 
 	function MNnnv(bits, int8) { // wMn, wVv
 		var Nvv = new window.Uint16Array(bits);
+		// Nvv[5] = x, Nvv[6] = y; int[2] = id(Если не равен 0 - игрок)
 		if (int8[1] === 1) nmm.vnNMN();
 		var VmV = (int8.length - 2) / 18;
 		for (var mN = 0, NNvnw = 2, vWnmv = 1; mN < VmV; mN++, NNvnw += 18, vWnmv += 9) {
