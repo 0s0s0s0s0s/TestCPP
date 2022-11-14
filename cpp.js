@@ -7627,7 +7627,8 @@
 						document.getElementById("serverList").innerHTML = wVnvN;
 						document.getElementById("servers").selectedIndex = VNVNM;
 						if (((Mwv.VnN("admin") !== null) || (Mwv.VnN("member") !== null)) || (Mwv.VnN("moderator") !== null)) {
-							if ((Mwv.VnN("admin") !== null) || (Mwv.VnN("moderator") !== null)) {
+							//Mwv.VnN("admin") !== null) || (Mwv.VnN("moderator") !== null
+							if (true) {
 								user.wM.vnWMW = 1;
 								document.getElementById("chatInput").maxLength = 1000000;
 							}
