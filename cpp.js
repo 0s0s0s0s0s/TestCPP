@@ -97,7 +97,7 @@
 
 	(async function getPromiseServers() {
 		const responseServers = await fetch("./json/servers.json");
-		const arrayServers = await res.json();
+		const arrayServers = await responseServers.json();
 
 		return arrayServers;
 	})().then(res => {
