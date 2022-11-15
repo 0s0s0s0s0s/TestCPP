@@ -889,6 +889,11 @@
 			WmObject = nmm.get(Nvn, WW, Mvv, vW);
 			VMwvV(WmObject, Nvn, Mvv, WW, vW, Nvv[vWnmv + 4], Nvv[vWnmv + 5], Nvv[vWnmv + 6], Nvv[vWnmv + 7], Wvn, int8[NNvnw + 2], NVM);
 			const WvV = mvn[vW].update;
+			// console.log(WmObject)
+      // Не будь чмо и юзай WmObject вместо ебучих массивов, вот рилл
+      // Nvn - айди игрока
+			// Крч юма в WmObject находится вся нужна нам инфа, так ещё и нормальная.
+			// Крч если айди = 0, то это как я понял игроки, а игровой айди, ну типо: айди юзера. Это Nvn
 			if (WvV !== undefined) WvV(WmObject, Nvv[vWnmv + 4], Nvv[vWnmv + 5]);
 		}
 	};
