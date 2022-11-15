@@ -923,7 +923,7 @@
 	};
 
 	function wmMvN(WW) {
-		if (user.nNv[WW].nVv === 0) user.MNW--;
+		if (user.players[WW].nVv === 0) user.MNW--;
 	};
 
 	function vNWmv() {
@@ -1040,7 +1040,7 @@
 		for (var mN = 0; mN < VmV; mN++) user.wM.Nwv[mN] = [0, 0, 0, 0];
 		var VmV = (vMn.byteLength - 8) / 10;
 		for (var NwNnN = 8, nVvvn = 4, mN = 0; mN < VmV; mN++, NwNnN += 10, nVvvn += 5) {
-			var wM = user.nNv[wVv[NwNnN]];
+			var wM = user.players[wVv[NwNnN]];
 			wM.id = wVv[NwNnN];
 			user.vWnnV(wM, wVv[NwNnN + 1]);
 			wM.MWm = (wVv[NwNnN + 2] === 0) ? 0 : (game.vnn + (wVv[NwNnN + 2] * 2000));
@@ -1052,8 +1052,8 @@
 			// window.console.log("id", wM, "score", wM.Vw);
 			wM.NVvnW = vnw.WWwMn(wM.Vw - 1);
 		}
-		user.wM.nVv = user.nNv[user.wM.id].nVv;
-		window.localStorage.setItem("tokenId", user.nNv[user.wM.id].VvNnm);
+		user.wM.nVv = user.players[user.wM.id].nVv;
+		window.localStorage.setItem("tokenId", user.players[user.wM.id].VvNnm);
 		window.localStorage.setItem("userId", user.wM.id);
 		user.NMVmM();
 		user.WmNWw();
@@ -1064,7 +1064,7 @@
 	};
 
 	function wWNWv(wVv) {
-		var wM = user.nNv[wVv[1]];
+		var wM = user.players[wVv[1]];
 		wM.mwnmn.push(wVv[2] >> 2);
 		wM.NwmwN.push(wVv[2] & 3);
 	};
@@ -1157,7 +1157,7 @@
 
 	function NvwWn(WW) {
 		var VV = nmm.wNVNv(mNn, WW, 0);
-		if ((VV !== null) && (user.nNv[WW].nVv === 0)) VV.nWV = 300;
+		if ((VV !== null) && (user.players[WW].nVv === 0)) VV.nWV = 300;
 	};
 
 	function nvmWn() {
@@ -1452,13 +1452,13 @@
 	};
 
 	function mvVMV(wM, VVm) {
-		user.nNv[wM].VVm = VVm;
-		user.nNv[wM].wnV = user.wVV[VVm].Mvv;
+		user.players[wM].VVm = VVm;
+		user.players[wM].wnV = user.wVV[VVm].Mvv;
 		if (wM === user.wM.id) user.wM.VVm = VVm;
 	};
 
 	function nNvWv(wM) {
-		user.nNv[wM].VVm = -1;
+		user.players[wM].VVm = -1;
 		if (wM === user.wM.id) user.wM.VVm = -1;
 	};
 
@@ -1492,7 +1492,7 @@
 			if (user.wM.id !== WW) {
 				var nI = wVv[1 + (mN * 3)];
 				var vV = wVv[2 + (mN * 3)];
-				var wM = user.nNv[WW];
+				var wM = user.players[WW];
 				Wv[NM].id = WW;
 				Wv[NM].WmWmM = 14000;
 				wM.x = nI * game.MWNVV;
@@ -1513,7 +1513,7 @@
 
 	function nMnmW(wVv) {
 		if (wVv[1] !== user.wM.id) {
-			var wM = user.nNv[wVv[1]];
+			var wM = user.players[wVv[1]];
 			wM.x = wVv[2] * game.MWNVV;
 			wM.y = wVv[3] * game.MWNVV;
 			wM.nnVMN = wVv[4];
@@ -1563,15 +1563,15 @@
 	};
 
 	function mVvvw(WW, NN) {
-		user.nNv[WW].MWm = game.vnn + (NN * 2000);
+		user.players[WW].MWm = game.vnn + (NN * 2000);
 	};
 
 	function NMnNm(WW, NN) {
-		user.nNv[WW].Vvm = game.vnn + (NN * 1000);
+		user.players[WW].Vvm = game.vnn + (NN * 1000);
 	};
 
 	function nWnMN(WW, Vvm) {
-		var wM = user.nNv[WW];
+		var wM = user.players[WW];
 		wM.Vvm = (Vvm !== 0) ? game.vnn : 0;
 		wM.MWm = game.vnn;
 	};
@@ -1803,11 +1803,11 @@
 	};
 
 	function MNmvv(vMn) {
-		user.nNv[vMn[1]].text.push(vMn[2]);
+		user.players[vMn[1]].text.push(vMn[2]);
 	};
 
 	function mvNWW(vMn) {
-		var wM = user.nNv[vMn[1]];
+		var wM = user.players[vMn[1]];
 		wM.VvNnm = vMn[2];
 		wM.Vw = 0;
 		wM.WmWmM = mNn;
@@ -1851,7 +1851,7 @@
 		var VVm = user.wVV[vMn[1]];
 		VVm.mwvNm = vMn[2];
 		VVm.name = vMn[3];
-		var wM = user.nNv[VVm.mwvNm];
+		var wM = user.players[VVm.mwvNm];
 		wM.wnV = VVm.Mvv;
 		wM.wmWWW = 1;
 		wM.VVm = VVm.id;
@@ -2377,7 +2377,7 @@
 			user.MNW = -1;
 			for (var mN = 0; mN < user.WnmVM; mN++) {
 				if (nwvWM[mN] !== 0) user.MNW++;
-				user.nNv[mN] = new Player(mN, nwvWM[mN]);
+				user.players[mN] = new Player(mN, nwvWM[mN]);
 			}
 		};
 
@@ -2531,14 +2531,14 @@
 				for (var mN = 0; mN < wM.WwnnN; mN++) {
 					var MwVvn = wM.VMWvW[mN];
 					if (MwVvn.WmWmM < 0) continue;
-					var NmN = user.nNv[MwVvn.id];
+					var NmN = user.players[MwVvn.id];
 					NmN.rx = graphicOptions.MmM(NmN.rx, NmN.x, 0.03);
 					NmN.ry = graphicOptions.MmM(NmN.ry, NmN.y, 0.03);
 					MwVvn.WmWmM -= var13;
 				}
 			}
 			if (user.wM.NWMNW > 0) {
-				var NmN = user.nNv[user.wM.MMnnM];
+				var NmN = user.players[user.wM.MMnnM];
 				NmN.rx = graphicOptions.MmM(NmN.rx, NmN.x, 0.03);
 				NmN.ry = graphicOptions.MmM(NmN.ry, NmN.y, 0.03);
 				user.wM.NWMNW -= var13;
@@ -2565,10 +2565,10 @@
 		};
 
 		function vWWWn(vwV, m) {
-			if ((user.nNv[vwV].mmn === 0) && (user.nNv[m].mmn === 0)) return 0;
-			else if (user.nNv[vwV].mmn === 0) return user.nNv[m].Vw - 1;
-			else if (user.nNv[m].mmn === 0) return -1 - user.nNv[vwV].Vw;
-			else return user.nNv[m].Vw - user.nNv[vwV].Vw;
+			if ((user.players[vwV].mmn === 0) && (user.players[m].mmn === 0)) return 0;
+			else if (user.players[vwV].mmn === 0) return user.players[m].Vw - 1;
+			else if (user.players[m].mmn === 0) return -1 - user.players[vwV].Vw;
+			else return user.players[m].Vw - user.players[vwV].Vw;
 		};
 
 		function NMVmM() {
@@ -2582,7 +2582,7 @@
 			for (var mN = 0; mN < 10; mN++) {
 				var WW = wVv[2 + (mN * 4)];
 				var Vw = Nvv[2 + (mN * 2)];
-				var wM = user.nNv[WW];
+				var wM = user.players[WW];
 				wM.Vw = vnw.vwvnN(Vw);
 				wM.nnVMN = wVv[3 + (mN * 4)];
 				var NVvnW = vnw.WWwMn(wM.Vw);
@@ -3005,7 +3005,7 @@
 			VmMvw: VmMvw,
 			vmmmW: vmmmW,
 			WMNNN: WMNNN, // FUCK SLAVES
-			nNv: [], // В будущем нахуйй этот массив будет заполнен всеми игроками!!!
+			players: [], // В будущем нахуйй этот массив будет заполнен всеми игроками!!!
 			wM: wM,
 			vmMVn: vmMVn,
 			wnvVN: wnvVN,
@@ -9265,12 +9265,12 @@
 						MWvWN.MW();
 						var NM = 0;
 						var VVm = user.wVV[user.wM.VVm];
-						for (var mN = 0; mN < user.nNv.length; mN++) {
+						for (var mN = 0; mN < user.players.length; mN++) {
 							if (mN === user.wM.id) {
 								NM++;
 								continue;
 							}
-							var wM = user.nNv[mN];
+							var wM = user.players[mN];
 							if ((wM.VVm === VVm.id) && (wM.wnV === VVm.Mvv)) {
 								vVmwV[NM].MW();
 								NM++;
@@ -9655,12 +9655,12 @@
 						}
 						var NM = 0;
 						var VVm = user.wVV[user.wM.VVm];
-						for (var mN = 0; mN < user.nNv.length; mN++) {
+						for (var mN = 0; mN < user.players.length; mN++) {
 							if (mN === user.wM.id) {
 								NM++;
 								continue;
 							}
-							var wM = user.nNv[mN];
+							var wM = user.players[mN];
 							if ((wM.VVm === VVm.id) && (wM.wnV === VVm.Mvv)) {
 								if (vVmwV[NM].MW() === 1) {
 									nV.mNm(window.JSON.stringify([32, wM.id]));
@@ -9841,12 +9841,12 @@
 						MWvWN.MW();
 						var NM = 0;
 						var VVm = user.wVV[user.wM.VVm];
-						for (var mN = 0; mN < user.nNv.length; mN++) {
+						for (var mN = 0; mN < user.players.length; mN++) {
 							if (mN === user.wM.id) {
 								NM++;
 								continue;
 							}
-							var wM = user.nNv[mN];
+							var wM = user.players[mN];
 							if ((wM.VVm === VVm.id) && (wM.wnV === VVm.Mvv)) {
 								vVmwV[NM].MW();
 								NM++;
@@ -9894,14 +9894,14 @@
 						}
 						
 						if ((user.wM.vnWMW === 1) && (mVMWV.value[0] === '!')) {
-							if (mVMWV.value === '!pos') user.nNv[user.wM.id].text.push((Math.floor(user.wM.x / 100) + ":") + Math.floor(user.wM.y / 100));
+							if (mVMWV.value === '!pos') user.players[user.wM.id].text.push((Math.floor(user.wM.x / 100) + ":") + Math.floor(user.wM.y / 100));
 							else {
 								var wwnww = mVMWV.value.split('!');
 								for (var mN = 1; mN < wwnww.length; mN++) {
 									var WwnMw = "!" + wwnww[mN];
 									if (WwnMw.indexOf("public") === -1) WwnMw = WwnMw.split(" ").join("");
 									nV.wMmvN(WwnMw);
-									if (mN <= 20) user.nNv[user.wM.id].text.push(WwnMw);
+									if (mN <= 20) user.players[user.wM.id].text.push(WwnMw);
 								}
 							}
 						} else if(mVMWV.value[0] === checkCommande.reg) {
@@ -9920,8 +9920,8 @@
 							}
 						} else {
 							var NN = nV.wMmvN(mVMWV.value);
-							if (NN !== 0) user.nNv[user.wM.id].text.push(("I am muted during " + Math.floor(NN / 1000)) + " seconds");
-							else user.nNv[user.wM.id].text.push(mVMWV.value);
+							if (NN !== 0) user.players[user.wM.id].text.push(("I am muted during " + Math.floor(NN / 1000)) + " seconds");
+							else user.players[user.wM.id].text.push(mVMWV.value);
 						}
 					}
 					VWmNm = 0;
@@ -11091,7 +11091,7 @@
 			if (Vvv.NMnww() === 1) Mm |= 4;
 			if (Vvv.VnWWN() === 1) Mm |= 8;
 			if (Mm > 0) {
-				var Nvn = user.nNv[1].nnnNM;
+				var Nvn = user.players[1].nnnNM;
 				if (Nvn === -1) return;
 				var wM = nmm.wNn[mNn][Nvn];
 				WMvVw = (((Mm & 3) && (Mm & 12)) ? MnNMW : 1) * ((Vvv.NWNVn() === 0) ? (var13 * 1.5) : (var13 * 11));
@@ -13343,7 +13343,7 @@
 
 		function VwNmv(nI, vV) {
 			var NWn = user.NWn;
-			var nNv = user.nNv;
+			var nNv = user.players;
 			var WvMvw = -1;
 			if (user.mWVwN === 1) {
 				WvMvw = 1;
@@ -13424,7 +13424,7 @@
 				for (var mN = 0; mN < user.wM.WwnnN; mN++) {
 					var MwVvn = user.wM.VMWvW[mN];
 					if (MwVvn.WmWmM < 0) continue;
-					var wM = user.nNv[MwVvn.id];
+					var wM = user.players[MwVvn.id];
 					var MVN = Math.floor(WNm + Math.min(Math.max(10, wM.rx * MwvNw), 400));
 					var wvN = Math.floor(mvw + Math.min(Math.max(10, wM.ry * MwvNw), 400));
 					var angle;
@@ -13437,7 +13437,7 @@
 			var wvN = Math.floor((vV / parScaling) + Math.min(Math.max(10, NNW * NMMwn), 400));
 			graphicOptions.drawMapStructures(mVnwv, MVN, wvN, nmn.angle, 0, 0, 1);
 			if (user.wM.NWMNW > 0) {
-				var wM = user.nNv[user.wM.MMnnM];
+				var wM = user.players[user.wM.MMnnM];
 				graphicOptions.drawMapStructures(wwnnm[wM.nnVMN], Math.floor(WNm + Math.min(Math.max(10, wM.rx * MwvNw), 400)), Math.floor(mvw + Math.min(Math.max(10, wM.ry * MwvNw), 400)), 0, 0, 0, 1.25);
 			}
 		};
@@ -13475,7 +13475,7 @@
 					context.globalAlpha = user.wM.nvmWV / 333;
 					user.wM.nvmWV = Math.max(0, user.wM.nvmWV - var13);
 				}
-				var wM = user.nNv[user.wM.mNvWw];
+				var wM = user.players[user.wM.mNvWw];
 				if (wM.NWm === null) wM.NWm = mn.vmv(wM.mmn, "'Comic Han Sans MS', sans-serif", "#FFFFFF", 38, 400, undefined, 16, 25, undefined, undefined, undefined, undefined, "#000000", 12);
 				context.drawImage(MWNww, nI, vV, parScaling * MWNww.wMv, parScaling * MWNww.nNn);
 				if ((wM.NWm.width !== 0) && (wM.NWm.height !== 0)) context.drawImage(wM.NWm, nI + (20 * parScaling), vV + (6 * parScaling), wM.NWm.wMv * parScaling, wM.NWm.nNn * parScaling);
@@ -13576,7 +13576,7 @@
 				for (var mN = 0; mN < user.wM.WwnnN; mN++) {
 					var MwVvn = user.wM.VMWvW[mN];
 					if (MwVvn.WmWmM < 0) continue;
-					var wM = user.nNv[MwVvn.id];
+					var wM = user.players[MwVvn.id];
 					var angle;
 					if (VVn === (wM.VVn + 1)) {
 						var WMv = nNv[wM.nnnNM];
@@ -13594,7 +13594,7 @@
 				}
 			}
 			if (user.wM.NWMNW > 0) {
-				var wM = user.nNv[user.wM.MMnnM];
+				var wM = user.players[user.wM.MMnnM];
 				if (VVn === (wM.VVn + 1)) {
 					var nNv = nmm.wNn[mNn];
 					var WMv = nNv[wM.nnnNM];
@@ -13701,8 +13701,8 @@
 					VmMvw.Wv.y = vV + (5 * parScaling);
 					VmMvw.nv();
 					var NM = 0;
-					for (var mN = 0; mN < user.nNv.length; mN++) {
-						var wM = user.nNv[mN];
+					for (var mN = 0; mN < user.players.length; mN++) {
+						var wM = user.players[mN];
 						if ((VVm.Mvv !== wM.wnV) || (wM.VVm !== VVm.id)) continue;
 						if (wM.NWm === null) wM.NWm = mn.vmv(wM.mmn, "'Comic Han Sans MS', sans-serif", "#FFFFFF", 38, 400, undefined, 16, 25, undefined, undefined, undefined, undefined, "#000000", 12);
 						if ((wM.NWm.width !== 0) && (wM.NWm.height !== 0)) context.drawImage(wM.NWm, nI + ((26 + ((NM % 3) * 166.5)) * parScaling), vV + ((53 + (Math.floor(NM / 3) * 29.5)) * parScaling), (wM.NWm.wMv * parScaling) / 2.2, (wM.NWm.nNn * parScaling) / 2.2);
@@ -13722,8 +13722,8 @@
 					VNWWW.Wv.y = vV + (5 * parScaling);
 					VNWWW.nv();
 					var NM = 0;
-					for (var mN = 0; mN < user.nNv.length; mN++) {
-						var wM = user.nNv[mN];
+					for (var mN = 0; mN < user.players.length; mN++) {
+						var wM = user.players[mN];
 						if ((VVm.Mvv !== wM.wnV) || (wM.VVm !== VVm.id)) continue;
 						if (wM.NWm === null) wM.NWm = mn.vmv(wM.mmn, "'Comic Han Sans MS', sans-serif", "#FFFFFF", 38, 400, undefined, 16, 25, undefined, undefined, undefined, undefined, "#000000", 12);
 						if ((wM.NWm.width !== 0) && (wM.NWm.height !== 0)) context.drawImage(wM.NWm, nI + ((26 + ((NM % 3) * 166.5)) * parScaling), vV + ((53 + (Math.floor(NM / 3) * 29.5)) * parScaling), (wM.NWm.wMv * parScaling) / 2.2, (wM.NWm.nNn * parScaling) / 2.2);
@@ -14135,7 +14135,7 @@
 		};
 
 		function mmmnM(VV) {
-			var wM = user.nNv[VV.Nvn];
+			var wM = user.players[VV.Nvn];
 			if (wM.text.length > 0) {
 				for (var mN = 0;
 					(mN < wM.text.length) && (mN < 2); mN++) {
@@ -14176,7 +14176,7 @@
 		};
 
 		function nvNNN(VV) {
-			var wM = user.nNv[VV.Nvn];
+			var wM = user.players[VV.Nvn];
 			if (((((VV.Wvn & 255) === 16) && (user.wM.vnWMW !== 1)) && (VV.Nvn !== user.wM.id)) && (((wM.VVm === -1) || (user.wVV[wM.VVm].Mvv !== wM.wnV)) || (user.wM.VVm !== wM.VVm))) return;
 			if (wM.NWm === null) wM.NWm = mn.vmv(wM.mmn, "'Comic Han Sans MS', sans-serif", "#FFFFFF", 38, 400, undefined, 16, 25, undefined, undefined, undefined, undefined, "#000000", 12);
 			var image = wM.NWm;
@@ -14321,7 +14321,7 @@
 		};
 
 		function wMMwW(VV) {
-			var wM = user.nNv[VV.Nvn];
+			var wM = user.players[VV.Nvn];
 			if ((wM !== undefined) && (wM.mwnmn.length > 0)) {
 				if (wM.WNnmW >= Wwnvm) wM.WNnmW = 0;
 				var NN = wM.WNnmW;
@@ -14357,7 +14357,7 @@
 		};
 
 		function WmNVw(VV) {
-			var wM = user.nNv[VV.Nvn];
+			var wM = user.players[VV.Nvn];
 			for (var mN = 0; mN < wM.WwWvn.length; mN++) {
 				var Wnn = wM.WwWvn[mN];
 				if ((mN > 0) && (Wnn.NN <= 0)) {
@@ -14392,7 +14392,7 @@
 		};
 
 		function vVMVm(vMW, Vn, VVW, VV, VM, nI, vV) {
-			var wM = user.nNv[VV.Nvn];
+			var wM = user.players[VV.Nvn];
 			var nVW = 0;
 			var MWm = wM.MWm - game.vnn;
 			var Vvm = wM.Vvm - game.vnn;
@@ -14497,7 +14497,7 @@
 		};
 
 		function wwnvV(vMW, Vn, VVW, VV, VM, nI, vV) {
-			var wM = user.nNv[VV.Nvn];
+			var wM = user.players[VV.Nvn];
 			var nVW = 0;
 			var MWm = wM.MWm - game.vnn;
 			var Vvm = wM.Vvm - game.vnn;
@@ -14622,7 +14622,7 @@
 		};
 
 		function nnMnn(vMW, Vn, VVW, VV, VM, nI, vV) {
-			var wM = user.nNv[VV.Nvn];
+			var wM = user.players[VV.Nvn];
 			var nVW = 0;
 			var MWm = wM.MWm - game.vnn;
 			var Vvm = wM.Vvm - game.vnn;
@@ -14711,7 +14711,7 @@
 		};
 
 		function mwNnW(vMW, Vn, VVW, VV, VM, nI, vV) {
-			var wM = user.nNv[VV.Nvn];
+			var wM = user.players[VV.Nvn];
 			var nVW = 0;
 			var MWm = wM.MWm - game.vnn;
 			var Vvm = wM.Vvm - game.vnn;
@@ -14796,7 +14796,7 @@
 		};
 
 		function wwmmw(vMW, Vn, VVW, VV, VM, nI, vV) {
-			var wM = user.nNv[VV.Nvn];
+			var wM = user.players[VV.Nvn];
 			var nVW = 0;
 			var MWm = wM.MWm - game.vnn;
 			var Vvm = wM.Vvm - game.vnn;
@@ -14880,7 +14880,7 @@
 		};
 
 		function MNMVN(vMW, Vn, VVW, VV, VM, nI, vV) {
-			var wM = user.nNv[VV.Nvn];
+			var wM = user.players[VV.Nvn];
 			var nVW = 0;
 			var MWm = wM.MWm - game.vnn;
 			var Vvm = wM.Vvm - game.vnn;
@@ -14978,10 +14978,10 @@
 					if ((wNW.Wwv === VVn) && (((NW.VMw !== 2) || (wNW.nmwMM === 0)) || (wNW.vnW === Vm.WmNVv))) {
 						user.wM.mvMNM = 0;
 						graphicOptions.drawMapStructures(NW.wnN, nI, vV, mm * mWw, 0, 0, 1);
-					} else if ((((NW.detail.vnW === Vm.WmNVv) || (NW.VMw === 2)) || (((wNW.Nvn !== 0) && (wNW.Nvn !== user.wM.id)) && (user.nNv[wNW.Nvn].VVm !== VVm))) && (wNW.mVMnv === VVn)) {
+					} else if ((((NW.detail.vnW === Vm.WmNVv) || (NW.VMw === 2)) || (((wNW.Nvn !== 0) && (wNW.Nvn !== user.wM.id)) && (user.players[wNW.Nvn].VVm !== VVm))) && (wNW.mVMnv === VVn)) {
 						user.wM.mvMNM = 0;
 						graphicOptions.drawMapStructures(NW.wnN, nI, vV, mm * mWw, 0, 0, 1);
-					} else if ((NW.nmNNN !== undefined) && ((((mm % 2) === 0) && ((((((user.wM.MvM < 1) || (user.wM.MvM >= (mvv - 1))) || (vnm[user.wM.MvM + 1][user.wM.vMw].Wwv === VVn)) || ((vnm[user.wM.MvM + 1][user.wM.vMw].mVMnv === VVn) && (((vnm[user.wM.MvM + 1][user.wM.vMw].Nvn !== user.wM.id) && (vnm[user.wM.MvM + 1][user.wM.vMw].Nvn !== 0)) && (user.nNv[vnm[user.wM.MvM + 1][user.wM.vMw].Nvn].VVm !== VVm)))) || (vnm[user.wM.MvM - 1][user.wM.vMw].Wwv === VVn)) || ((vnm[user.wM.MvM - 1][user.wM.vMw].mVMnv === VVn) && (((vnm[user.wM.MvM - 1][user.wM.vMw].Nvn !== user.wM.id) && (vnm[user.wM.MvM - 1][user.wM.vMw].Nvn !== 0)) && (user.nNv[vnm[user.wM.MvM - 1][user.wM.vMw].Nvn].VVm !== VVm))))) || (((mm % 2) === 1) && (((((((user.wM.vMw < 1) || (user.wM.vMw >= (wwv - 1))) || (vnm[user.wM.MvM][user.wM.vMw + 1].Wwv === VVn)) || ((vnm[user.wM.MvM][user.wM.vMw + 1].mVMnv === VVn) && (((vnm[user.wM.MvM][user.wM.vMw + 1].Nvn !== user.wM.id) && (vnm[user.wM.MvM][user.wM.vMw + 1].Nvn !== 0)) && (user.nNv[vnm[user.wM.MvM][user.wM.vMw + 1].Nvn].VVm !== VVm)))) || (vnm[user.wM.MvM][user.wM.vMw - 1].Wwv === VVn)) || ((vnm[user.wM.MvM][user.wM.vMw - 1].mVMnv === VVn) && (((vnm[user.wM.MvM][user.wM.vMw - 1].Nvn !== user.wM.id) && (vnm[user.wM.MvM][user.wM.vMw - 1].Nvn !== 0)) && (user.nNv[vnm[user.wM.MvM][user.wM.vMw - 1].Nvn].VVm !== VVm)))) || (user.wM.vNW === user.wM.MvM))))) {
+					} else if ((NW.nmNNN !== undefined) && ((((mm % 2) === 0) && ((((((user.wM.MvM < 1) || (user.wM.MvM >= (mvv - 1))) || (vnm[user.wM.MvM + 1][user.wM.vMw].Wwv === VVn)) || ((vnm[user.wM.MvM + 1][user.wM.vMw].mVMnv === VVn) && (((vnm[user.wM.MvM + 1][user.wM.vMw].Nvn !== user.wM.id) && (vnm[user.wM.MvM + 1][user.wM.vMw].Nvn !== 0)) && (user.players[vnm[user.wM.MvM + 1][user.wM.vMw].Nvn].VVm !== VVm)))) || (vnm[user.wM.MvM - 1][user.wM.vMw].Wwv === VVn)) || ((vnm[user.wM.MvM - 1][user.wM.vMw].mVMnv === VVn) && (((vnm[user.wM.MvM - 1][user.wM.vMw].Nvn !== user.wM.id) && (vnm[user.wM.MvM - 1][user.wM.vMw].Nvn !== 0)) && (user.players[vnm[user.wM.MvM - 1][user.wM.vMw].Nvn].VVm !== VVm))))) || (((mm % 2) === 1) && (((((((user.wM.vMw < 1) || (user.wM.vMw >= (wwv - 1))) || (vnm[user.wM.MvM][user.wM.vMw + 1].Wwv === VVn)) || ((vnm[user.wM.MvM][user.wM.vMw + 1].mVMnv === VVn) && (((vnm[user.wM.MvM][user.wM.vMw + 1].Nvn !== user.wM.id) && (vnm[user.wM.MvM][user.wM.vMw + 1].Nvn !== 0)) && (user.players[vnm[user.wM.MvM][user.wM.vMw + 1].Nvn].VVm !== VVm)))) || (vnm[user.wM.MvM][user.wM.vMw - 1].Wwv === VVn)) || ((vnm[user.wM.MvM][user.wM.vMw - 1].mVMnv === VVn) && (((vnm[user.wM.MvM][user.wM.vMw - 1].Nvn !== user.wM.id) && (vnm[user.wM.MvM][user.wM.vMw - 1].Nvn !== 0)) && (user.players[vnm[user.wM.MvM][user.wM.vMw - 1].Nvn].VVm !== VVm)))) || (user.wM.vNW === user.wM.MvM))))) {
 						user.wM.mvMNM = 0;
 						graphicOptions.drawMapStructures(NW.wnN, nI, vV, mm * mWw, 0, 0, 1);
 					} else {
@@ -15009,7 +15009,7 @@
 		};
 
 		function wmNNw(vMW, Vn, VVW, VV, VM, nI, vV) {
-			var wM = user.nNv[VV.Nvn];
+			var wM = user.players[VV.Nvn];
 			var nVW = 0;
 			var MWm = wM.MWm - game.vnn;
 			var Vvm = wM.Vvm - game.vnn;
@@ -15371,7 +15371,7 @@
 			var nwNMM = 0;
 			var NMNVW = 1;
 			if ((VV.state & 16) === 16) NMNVW = 0;
-			if (((VV.Nvn === user.wM.id) || (((user.wM.VVm !== -1) && (user.wM.VVm === user.nNv[VV.Nvn].VVm)) && (user.nNv[VV.Nvn].wnV === user.wVV[user.wM.VVm].Mvv))) || (mnW.nmw(nvv, NNW, VV.x, VV.y) < 52000)) nwNMM = 1;
+			if (((VV.Nvn === user.wM.id) || (((user.wM.VVm !== -1) && (user.wM.VVm === user.players[VV.Nvn].VVm)) && (user.players[VV.Nvn].wnV === user.wVV[user.wM.VVm].Mvv))) || (mnW.nmw(nvv, NNW, VV.x, VV.y) < 52000)) nwNMM = 1;
 			if (NMNVW === 0) {
 				if (VV.mNw === 0) wvmVW(VV, NW.NvW, NW.mVM, 5);
 				if (VV.mNw < 300) {
@@ -15404,7 +15404,7 @@
 
 		function mmnVM(NW, VV, nI, vV, mm, VM) {
 			var nwNMM = 0;
-			if (((VV.Nvn === user.wM.id) || (((user.wM.VVm !== -1) && (user.wM.VVm === user.nNv[VV.Nvn].VVm)) && (user.nNv[VV.Nvn].wnV === user.wVV[user.wM.VVm].Mvv))) || (mnW.nmw(nvv, NNW, VV.x, VV.y) < 22500)) nwNMM = 1;
+			if (((VV.Nvn === user.wM.id) || (((user.wM.VVm !== -1) && (user.wM.VVm === user.players[VV.Nvn].VVm)) && (user.players[VV.Nvn].wnV === user.wVV[user.wM.VVm].Mvv))) || (mnW.nmw(nvv, NNW, VV.x, VV.y) < 22500)) nwNMM = 1;
 			if (nwNMM === 1) {
 				if (VV.VN === 300) graphicOptions.drawMapStructures(NW.Vv, (vnv + VV.x) + nI, (WNN + VV.y) + vV, mm * mWw, 0, 0, VM);
 				else {
@@ -15423,7 +15423,7 @@
 
 		function MnmVv(NW, VV, nI, vV, mm, VM) {
 			var nwNMM = 0;
-			if (((VV.Nvn === user.wM.id) || (((user.wM.VVm !== -1) && (user.wM.VVm === user.nNv[VV.Nvn].VVm)) && (user.nNv[VV.Nvn].wnV === user.wVV[user.wM.VVm].Mvv))) || (mnW.nmw(nvv, NNW, VV.x, VV.y) < 52000)) nwNMM = 1;
+			if (((VV.Nvn === user.wM.id) || (((user.wM.VVm !== -1) && (user.wM.VVm === user.players[VV.Nvn].VVm)) && (user.players[VV.Nvn].wnV === user.wVV[user.wM.VVm].Mvv))) || (mnW.nmw(nvv, NNW, VV.x, VV.y) < 52000)) nwNMM = 1;
 			if (nwNMM === 1) {
 				if (VV.VN === 300) graphicOptions.drawMapStructures(NW.Vv[VV.id % 3], (vnv + VV.x) + nI, (WNN + VV.y) + vV, mm * mWw, 0, 0, VM);
 				else {
@@ -15454,7 +15454,7 @@
 		};
 
 		function Vnvmw(NW, VV, wmnWM) {
-			if ((((VV.wWn === 0) && (user.wM.wMW !== 1)) && (user.wM.vVw !== 1)) && (((wmnWM === 0) || (VV.Nvn === user.wM.id)) || (((user.wM.VVm !== -1) && (user.wM.VVm === user.nNv[VV.Nvn].VVm)) && (user.nNv[VV.Nvn].wnV === user.wVV[user.wM.VVm].Mvv)))) {
+			if ((((VV.wWn === 0) && (user.wM.wMW !== 1)) && (user.wM.vVw !== 1)) && (((wmnWM === 0) || (VV.Nvn === user.wM.id)) || (((user.wM.VVm !== -1) && (user.wM.VVm === user.players[VV.Nvn].VVm)) && (user.players[VV.Nvn].wnV === user.wVV[user.wM.VVm].Mvv)))) {
 				var WNw = mnW.nmw(nvv, NNW, VV.x, VV.y);
 				if (WNw < NvnnN) {
 					user.wM.VVw = NW.VVw;
@@ -16110,7 +16110,7 @@
 			vnm[VV.mN][VV.NM].nmwMM = VV.Nvn;
 			vnm[VV.mN][VV.NM].vnW = undefined;
 			if (VV.mmw !== 0) {
-				var wM = user.nNv[VV.mmw];
+				var wM = user.players[VV.mmw];
 				if (VVn === wM.VVn) {
 					var nNv = nmm.wNn[mNn];
 					var WMv = nNv[wM.nnnNM];
@@ -16223,7 +16223,7 @@
 			for (mN = 0; mN < VmV; mN++) {
 				var Wv = WWV.nNW[mN];
 				var VV = nNv[Wv];
-				var wM = user.nNv[VV.Nvn];
+				var wM = user.players[VV.Nvn];
 				WmNVw(VV);
 				wM.nnnNM = Wv;
 				wM.VVn = VVn;
@@ -16258,7 +16258,7 @@
 			if (user.wNN === user.mWwvm) {
 				for (mN = 0; mN < VmV; mN++) {
 					var VV = nNv[WWV.nNW[mN]];
-					var nVv = user.nNv[VV.Nvn].nVv;
+					var nVv = user.players[VV.Nvn].nVv;
 					if (nVv === 0) Nvvmn(VV);
 					else {
 						VV.Wvn = nVv - 1;
@@ -16269,7 +16269,7 @@
 					var VV = Mww[NMN.nNW[mN]];
 					if (VV.type === mNn) {
 						WmNVw(VV);
-						var nVv = user.nNv[VV.Nvn].nVv;
+						var nVv = user.players[VV.Nvn].nVv;
 						if (nVv === 0) Nvvmn(VV);
 						else {
 							VV.Wvn = nVv - 1;
@@ -16622,7 +16622,7 @@
 		WmObject.NNV = (WmObject.state >> 8) / 100;
 	};
 	mvn[mNn].wnW = function wWWMn(WmObject) {
-		var wM = user.nNv[WmObject.Nvn];
+		var wM = user.players[WmObject.Nvn];
 		for (var mN = 0; mN < wM.WwWvn.length; mN++) wM.WwWvn[mN].NN = 0;
 		for (var mN = 0; mN < wM.WwVNw.length; mN++) wM.WwVNw[mN].NN = 0;
 		WmObject.angle = WmObject.WMnVN;
