@@ -2382,7 +2382,11 @@
 		};
 
 		function Player(id, name) {
-			this.mmn = (wM.vnWMW === 1) ? ((name + "#") + id) : name;
+			// wM.vnWMW === 1 ?
+			// Была проверка на админа, если ты им являлся, то в ники сувался айдишник
+			// Я её убрал т.к.: а чо
+
+			this.mmn = name !== 0 ? name + "#" + id : name;
 			this.id = id;
 			this.VvNnm = 0;
 			this.MMw = 0;
