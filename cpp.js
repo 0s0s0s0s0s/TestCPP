@@ -2375,9 +2375,9 @@
 
 		function WMNNN(nwvWM) {
 			user.MNW = -1;
-			for (var mN = 0; mN < user.WnmVM; mN++) {
-				if (nwvWM[mN] !== 0) user.MNW++;
-				user.players[mN] = new Player(mN, nwvWM[mN]);
+			for (let id = 0; id < user.WnmVM; id++) {
+				if (nwvWM[id] !== 0) user.MNW++;
+				user.players[id] = new Player(id, nwvWM[id]);
 			}
 		};
 
