@@ -1845,8 +1845,6 @@
 		user.WMNNN(vMn);
 	};
 
-	function wMWWN(mvMmN) {};
-
 	function mVVvw(vMn) {
 		var VVm = user.wVV[vMn[1]];
 		VVm.mwvNm = vMn[2];
@@ -1876,9 +1874,6 @@
 				break;
 			case 2:
 				vWWnV(vMn);
-				break;
-			case 3:
-				wMWWN(vMn[1]);
 				break;
 			case 4:
 				mVVvw(vMn);
