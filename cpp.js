@@ -1380,7 +1380,7 @@
 	}
 
 	function NvwWn(WW) {
-		var VV = nmm.wNVNv(mNn, WW, 0);
+		const VV = nmm.wNVNv(mNn, WW, 0);
 		if (VV !== null && user.players[WW].nVv === 0) VV.nWV = 300;
 	}
 
@@ -1389,15 +1389,15 @@
 	}
 
 	function wwwNm(NW) {
-		var mv = user.wM.Nwv;
-		for (var mN = 0; mN < mv.length; mN++) {
+		const mv = user.wM.Nwv;
+		for (let i = 0; i < mv.length; i++) {
 			if (
-				mv[mN][0] === NW[1] &&
-				mv[mN][1] === NW[2] &&
-				mv[mN][2] === NW[3] &&
-				mv[mN][3] === NW[4]
+				mv[i][0] === NW[1] &&
+				mv[i][1] === NW[2] &&
+				mv[i][2] === NW[3] &&
+				mv[i][3] === NW[4]
 			) {
-				mv[mN][1] = NW[5];
+				mv[i][1] = NW[5];
 				if (WWm.wWV() === 1 && user.wM.wvV === -1) user.nWw(user.wM.wmn);
 				return;
 			}
@@ -1501,15 +1501,15 @@
 	}
 
 	function WVMWv(NW) {
-		var mv = user.wM.Nwv;
-		for (var mN = 0; mN < mv.length; mN++) {
+		const mv = user.wM.Nwv;
+		for (let i = 0; i < mv.length; i++) {
 			if (
-				mv[mN][0] === NW[1] &&
-				mv[mN][1] === NW[2] &&
-				mv[mN][2] === NW[3] &&
-				mv[mN][3] === NW[4]
+				mv[i][0] === NW[1] &&
+				mv[i][1] === NW[2] &&
+				mv[i][2] === NW[3] &&
+				mv[i][3] === NW[4]
 			) {
-				mv[mN][3] = NW[5];
+				mv[i][3] = NW[5];
 				return;
 			}
 		}
