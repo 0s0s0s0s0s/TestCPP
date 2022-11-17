@@ -2818,8 +2818,8 @@
 		}
 
 		function nVmnn(wVV) {
-			for (var mN = 0; mN < VNMWw; mN++)
-				user.wVV[mN] = new VWWnM(mN, wVV[mN + 1]);
+			for (let id = 0; id < VNMWw; id++)
+				user.wVV[id] = new Clan(id, wVV[id + 1]);
 		}
 
 		function vWnnV(WmNNN, WW) {
@@ -2859,7 +2859,7 @@
 		}
 		var wnV = 0;
 
-		function VWWnM(WW, vWn) {
+		function Clan(WW, vWn) {
 			this.id = WW;
 			this.name = vWn;
 			this.label = null;
