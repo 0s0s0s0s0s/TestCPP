@@ -1312,18 +1312,18 @@
 	}
 
 	function WWWvN(vwvmN) {
-		for (var mN = 0; mN < user.wM.Nwv.length; mN++) {
-			for (var NM = 0; NM < 4; NM++) user.wM.Nwv[mN][0] = 0;
+		for (let i = 0; i < user.wM.Nwv.length; i++) {
+			for (let j = 0; j < 4; j++) user.wM.Nwv[i][0] = 0;
 		}
 		var NM = 0;
-		for (var mN = 1; mN < vwvmN.length; mN += 4) {
-			var NW = vwvmN[mN];
+		for (let i = 1; i < vwvmN.length; i += 4) {
+			var NW = vwvmN[i];
 			if (NW !== 0) WWm.Nwv[NM].nWm(nvn[NW].nN.src, nvn[NW].nN.image);
 			else continue;
 			var mv = user.wM.Nwv[NM];
-			mv[1] = vwvmN[mN + 1];
-			mv[2] = vwvmN[mN + 2];
-			mv[3] = vwvmN[mN + 3];
+			mv[1] = vwvmN[i + 1];
+			mv[2] = vwvmN[i + 2];
+			mv[3] = vwvmN[i + 3];
 			mv[0] = NW;
 			NM++;
 		}
