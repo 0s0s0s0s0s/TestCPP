@@ -1350,13 +1350,13 @@
 
 	function wmvVv(NW) {
 		var mv = user.wM.Nwv;
-		for (var mN = 0; mN < mv.length; mN++) {
-			if (mv[mN][0] === 0) {
-				mv[mN][0] = NW[1];
-				mv[mN][1] = NW[2];
-				mv[mN][2] = NW[3];
-				mv[mN][3] = NW[4];
-				WWm.Nwv[mN].nWm(nvn[NW[1]].nN.src, nvn[NW[1]].nN.image);
+		for (let i = 0; i < mv.length; i++) {
+			if (mv[i][0] === 0) {
+				mv[i][0] = NW[1];
+				mv[i][1] = NW[2];
+				mv[i][2] = NW[3];
+				mv[i][3] = NW[4];
+				WWm.Nwv[i].nWm(nvn[NW[1]].nN.src, nvn[NW[1]].nN.image);
 				if (WWm.wWV() === 1 && user.wM.wvV === -1) user.nWw(user.wM.wmn);
 				return;
 			}
