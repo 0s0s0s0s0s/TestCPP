@@ -85,7 +85,6 @@
 				innerHeight - innerHeight * 0.2
 			);
 			context.fillStyle = "#000";
-			let font = context.font;
 			context.fillStyle = "#fff";
 			context.font = "20px Black Han Sans";
 			context.fillText(
@@ -1182,7 +1181,7 @@
 		user.wM.nWnmw = 0;
 		user.wM.nNVmV = 0;
 		user.wM.vMv = 0;
-		for (var mN = 0; mN < user.wM.WvN.length; mN++) user.wM.WvN[mN] = 0;
+		for (let i = 0; i < user.wM.WvN.length; mN++) user.wM.WvN[i] = 0;
 		for (var mN = 0; mN < 8; mN++)
 			user.wM.VMWvW[mN] = {
 				WmWmM: 0,
@@ -1253,7 +1252,7 @@
 		}
 		var VmV = mvn[mNn].wnvvV;
 		user.wM.Nwv = [];
-		for (var mN = 0; mN < VmV; mN++) user.wM.Nwv[mN] = [0, 0, 0, 0];
+		for (let i = 0; i < VmV; i++) user.wM.Nwv[i] = [0, 0, 0, 0];
 		var VmV = (vMn.byteLength - 8) / 10;
 		for (
 			var NwNnN = 8, nVvvn = 4, mN = 0;
