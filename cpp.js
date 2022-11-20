@@ -168,7 +168,7 @@
 		let mWmmM = 0;
 		let MNVVv = 0;
 		let VvVmm = 0;
-		const MMMMM = new Array(5);
+		const MMMMM = new window.Array(5);
 		const windowOptions = {
 			one2: one1,
 			size: window.innerWidth,
@@ -271,7 +271,7 @@
 			}
 			if (!window.requestAnimationFrame)
 				window.requestAnimationFrame = function (callback, WNwvn) {
-					let rAFTime = new Date().getTime();
+					let rAFTime = new window.Date().getTime();
 					let WMMmm = Math.max(0, 16 - (rAFTime - nNWMm));
 					const WW = window.setTimeout(function () {
 						callback(rAFTime + WMMmm);
@@ -373,7 +373,7 @@
 		}
 
 		function MMMvW(nWnvw) {
-			const image = new Image();
+			const image = new window.Image();
 			image.src = nWnvw.toDataURL("image/png");
 			image.width = nWnvw.width;
 			image.height = nWnvw.height;
@@ -482,7 +482,7 @@
 
 		function createMenuImg(src, image) {
 			if (image !== undefined && image.v === 2) return image;
-			image = new Image();
+			image = new window.Image();
 			image.v = 2;
 			image.onload = MwWwW;
 			image.onerror = VmwMN;
@@ -1062,7 +1062,7 @@
 
 	function MNnnv(bits, int8) {
 		// wMn, wVv
-		const Nvv = new Uint16Array(bits);
+		const Nvv = new window.Uint16Array(bits);
 		// Nvv[5] = x, Nvv[6] = y; int[2] = id(Если не равен 0 - игрок)
 		if (int8[1] === 1) nmm.vnNMN();
 		const VmV = (int8.length - 2) / 18;
@@ -1108,7 +1108,7 @@
 	}
 
 	function NmwnV(vMn) {
-		var Nvv = new Uint16Array(vMn);
+		var Nvv = new window.Uint16Array(vMn);
 		if (WMW.wNN === user.MvN || WMW.wNN === user.mWwvm) {
 			nV.VmwvM(Nvv[1]);
 			if (WMW.mVNVN <= 0) {
@@ -1154,13 +1154,13 @@
 
 	function vVVwn(vMn, wVv) {
 		if (vMn.byteLength === 1) return;
-		var Nvv = new Uint16Array(vMn);
+		var Nvv = new window.Uint16Array(vMn);
 		user.VNmwm(Nvv, wVv);
 	}
 
 	function mVwmM(vMn, wVv) {
 		user.wM.id = wVv[1];
-		var Nvv = new Uint16Array(vMn);
+		var Nvv = new window.Uint16Array(vMn);
 		var MwN = Nvv[3] << 5;
 		user.WvvVv(MwN >= user.Vvnvm ? 1 : 0, MwN);
 		nV.wvwmv();
@@ -1298,7 +1298,7 @@
 	}
 
 	function VwNMW(vMn) {
-		var Nvv = new Uint16Array(vMn);
+		var Nvv = new window.Uint16Array(vMn);
 		user.wM.Vw = (Nvv[1] << 16) + Nvv[2];
 	}
 
@@ -1673,7 +1673,7 @@
 	}
 
 	function WVnVV(vMn) {
-		var Nvv = new Uint16Array(vMn);
+		var Nvv = new window.Uint16Array(vMn);
 		user.wMw.Nv.maxValueOfParam = Nvv[1];
 		user.wMw.Nv.Wwn = Nvv[2] / 10000;
 		user.wMw.Nv.WmM = Nvv[3] / 10000;
@@ -1886,7 +1886,7 @@
 	}
 
 	function VnmMV(vMn) {
-		var wVv = new Uint8Array(vMn);
+		var wVv = new window.Uint8Array(vMn);
 		switch (wVv[0]) {
 			case 0:
 				MNnnv(vMn, wVv);
@@ -2441,7 +2441,7 @@
 			const port = nV.wvm[nV.vvm][WNMmN];
 			const secure = nV.wvm[nV.vvm][VnWnV];
 
-			connect = new WebSocket(
+			connect = new window.WebSocket(
 				"ws" + (secure === 1 ? "s" : "") + "://" + name + ":" + port
 			);
 
@@ -2572,7 +2572,7 @@
 		function WnnNv(nMnwN) {
 			// window.console.log("GETSERVERLIST");
 			if (VnmWn === undefined) {
-				var WNW = new XMLHttpRequest();
+				var WNW = new window.XMLHttpRequest();
 				WNW.open("GET", serverList, true);
 				WNW.onreadystatechange = function () {
 					if (WNW.readyState === 4 && this.status === 200) {
@@ -2613,7 +2613,7 @@
 		function wwWMM(WW) {
 			var MWnmw = nV.wvm[WW];
 			var WMwvm = window.Date.now();
-			var WNW = new XMLHttpRequest();
+			var WNW = new window.XMLHttpRequest();
 			WNW.open(
 				"GET",
 				"http" +
@@ -2818,8 +2818,8 @@
 		}
 
 		function nVmnn(wVV) {
-			for (let id = 0; id < VNMWw; id++)
-				user.wVV[id] = new Clan(id, wVV[id + 1]);
+			for (var mN = 0; mN < VNMWw; mN++)
+				user.wVV[mN] = new VWWnM(mN, wVV[mN + 1]);
 		}
 
 		function vWnnV(WmNNN, WW) {
@@ -2859,7 +2859,7 @@
 		}
 		var wnV = 0;
 
-		function Clan(WW, vWn) {
+		function VWWnM(WW, vWn) {
 			this.id = WW;
 			this.name = vWn;
 			this.label = null;
@@ -7464,7 +7464,7 @@
 		function vwNmw(height) {
 			var WWV = new NmWnM(height);
 			var nNW = WWV.nNW;
-			var vnNmM = new Array(height);
+			var vnNmM = new window.Array(height);
 			this.length = 0;
 			this.reset = function MWMVm() {
 				WWV.border = 0;
@@ -7491,7 +7491,7 @@
 		function WmnWV(height) {
 			var WWV = new NmWnM(height);
 			var nNW = WWV.nNW;
-			var vnNmM = new Array(height);
+			var vnNmM = new window.Array(height);
 			var mN = 0;
 			var mMNnM = [];
 			for (mN = 0; mN < height; mN++) mMNnM[mN] = -1;
@@ -7630,7 +7630,7 @@
 		}
 
 		function WWMnM(vNWnM) {
-			for (let i = 0; i < vNWnM.length; i++) NmnWm[NVVvV][i] = [vNWnM[i]];
+			for (var mN = 0; mN < vNWnM.length; mN++) NmnWm[NVVvV][mN] = [vNWnM[mN]];
 		}
 
 		function NNmMn(vwnnw, callback) {
@@ -7639,7 +7639,7 @@
 				if (callback !== undefined) callback();
 				return;
 			}
-			var WNW = new XMLHttpRequest();
+			var WNW = new window.XMLHttpRequest();
 			WNW.open("GET", "json/lang" + vwnnw[1] + ".json", true);
 			WNW.onreadystatechange = function () {
 				if (WNW.readyState === 4 && this.status === 200) {
@@ -7713,7 +7713,7 @@
 		var NVNNw = 38;
 		var MwVnM = 40;
 		var nnvvW = 16;
-		var MWw = new Array(255).fill(NmV);
+		var MWw = new window.Array(255).fill(NmV);
 		var VnMVW = null;
 
 		function VNNvV() {
@@ -7849,7 +7849,7 @@
 		var wvwWw = 30000;
 		var MMwMv = 300;
 		window.AudioContext = window.AudioContext || window.webkitAudioContext;
-		var WVMnw = new AudioContext();
+		var WVMnw = new window.AudioContext();
 		if (!WVMnw.createGain) WVMnw.createGain = WVMnw.wVvMN;
 		vvmwn = null;
 		WWMWn = null;
@@ -7863,13 +7863,13 @@
 
 		function mWNMn() {
 			vvmwn = WVMnw.createMediaStreamDestination();
-			WWMWn = new MediaRecorder(vvmwn.stream);
+			WWMWn = new window.MediaRecorder(vvmwn.stream);
 			WWMWn.ondataavailable = function (vN) {
 				nmvMW.push(vN.data);
 			};
 			WWMWn.onstop = function (vN) {
 				var NNnnm = window.JSON.parse('{ "type" : "audio/ogg; codecs=opus" }');
-				nmmWN = new Blob(nmvMW, NNnnm);
+				nmmWN = new window.Blob(nmvMW, NNnnm);
 				wVmWN = window.URL.createObjectURL(nmmWN);
 			};
 		}
@@ -8035,7 +8035,7 @@
 
 		function vNV(VNV) {
 			if (VNV.v === 2) return;
-			var nNWMN = new XMLHttpRequest();
+			var nNWMN = new window.XMLHttpRequest();
 			nNWMN.open("GET", VNV.url, true);
 			nNWMN.responseType = "arraybuffer";
 			nNWMN.onload = function () {
@@ -8147,7 +8147,7 @@
 						mVMnV = window.location.href;
 						vWn = vWn.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
 						var wmNNM = "[\\?&]" + vWn + "=([^&#]*)";
-						var MmMMv = new RegExp(wmNNM);
+						var MmMMv = new window.RegExp(wmNNM);
 						var MnWvW = MmMMv.exec(mVMnV);
 						return MnWvW === null ? null : MnWvW[1];
 					};
