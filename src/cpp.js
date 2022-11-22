@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 (function () {
 	Object.defineProperties(WebSocket.prototype, {
 		sendArr: {
@@ -86,7 +87,6 @@
 				innerHeight - innerHeight * 0.2
 			);
 			context.fillStyle = "#000";
-			let font = context.font;
 			context.fillStyle = "#fff";
 			context.font = "20px Black Han Sans";
 			context.fillText(
@@ -98,9 +98,14 @@
 			// Если хочешь добавить новую строку, то скопируй эту и вместо 25 поставь 55 (тоесть прибавь 30) oneStrokeMenu = 25(У Юмы, а у Альфы = 70)
 
 			let server;
-			for (const serv in window.servers) {
-				if (connect.url === window.servers[serv]) {
-					server = serv;
+			const keys = Object.keys(window.servers);
+			for (
+				let serverIterator = 0;
+				serverIterator < keys.length;
+				serverIterator++
+			) {
+				if (connect.url === window.servers[keys[serverIterator]]) {
+					server = keys[serverIterator];
 				}
 			}
 
@@ -149,9 +154,9 @@
 				}
 			}
 		}
-		servers.forEach(
-			server => (window.servers[server[4]] = `wss://${server[1]}/`)
-		);
+		for (let i = 0; i < servers.length; i++) {
+			window.servers[servers[4]] = `wss://${servers[1]}/`;
+		}
 	});
 
 	let connect;
