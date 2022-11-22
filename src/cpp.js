@@ -1,7 +1,7 @@
 (function () {
 	Object.defineProperties(WebSocket.prototype, {
 		sendArr: {
-			value: function (...what) {
+			value(...what) {
 				this.send(JSON.stringify(what));
 			},
 			configurable: true
@@ -11,6 +11,7 @@
 	Math.PIT = Math.PI / 2;
 	Math.PIO = Math.PI * 2;
 
+	// eslint-disable-next-line no-restricted-globals
 	const oneStrokeMenu = confirm("Юма") ? 25 : 70; // У тебя Юма - 25, у меня - 70
 
 	window.indicOn = true;

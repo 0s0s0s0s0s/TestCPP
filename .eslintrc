@@ -18,7 +18,8 @@
 		"linebreak-style": "off",
 		"no-var": "warn",
 		"vars-on-top": "warn",
-		"block-scoped-var": "warn"
+		"block-scoped-var": "warn",
+		"operator-linebreak": "off"
 	},
 	"extends": ["airbnb/base"],
 	"plugins": ["prettier"]
